@@ -51,10 +51,7 @@ public class Game implements Runnable
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.setColor(Color.red);
-		g.fillRect(10, 50, 50, 70);
-		g.setColor(Color.GREEN);
-		g.fillRect(0, 0, 10, 10);
+		
 		
 		//End Drawing
 		bs.show();
