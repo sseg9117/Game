@@ -18,6 +18,7 @@ public class Game implements Runnable
 		this.title = title;
 		
 	}
+	
 	private void init()
 	{
 		display = new Display(title, width, height);
@@ -33,6 +34,7 @@ public class Game implements Runnable
 	{
 		
 	}
+	
 	public void run()
 	{
 		init();
