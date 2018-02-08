@@ -1,5 +1,6 @@
 package dev.sheradon.game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -46,10 +47,12 @@ public class Game implements Runnable
 			
 		}
 		g = bs.getDrawGraphics();
+		//Clear Screen
+		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.fillRect(0, 0, width, height);
-		
+		g.setColor(Color.red);
+		g.fillRect(10, 50, 50, 70);
 		
 		//End Drawing
 		bs.show();
