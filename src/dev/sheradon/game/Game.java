@@ -1,5 +1,8 @@
 package dev.sheradon.game;
 
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+
 import dev.sheradon.game.display.Display;
 
 public class Game implements Runnable
@@ -10,6 +13,9 @@ public class Game implements Runnable
 	
 	private boolean running = false;
 	private Thread thread;
+	
+	private BufferStrategy bs;
+	private Graphics g;
 	
 	public Game(String title, int width, int height)
 	{
@@ -32,7 +38,20 @@ public class Game implements Runnable
 	
 	private void render()
 	{
+		bs = display.getCanvas().getBufferStrategy();
+		if(bs == null)
+		{
+			display.getCanvas().createBufferStrategy(3);
+			return;
+			
+		}
+		g = bs.getDrawGraphics();
+		//Draw here
 		
+		
+		
+		
+		//End Drawing
 	}
 	
 	public void run()
@@ -44,7 +63,7 @@ public class Game implements Runnable
 			tick();
 			render();
 		}
-		stop();// just incase it dosnt stop
+		stop();// just in case it doesn't stop
 	}
 	
 	public synchronized void start()
