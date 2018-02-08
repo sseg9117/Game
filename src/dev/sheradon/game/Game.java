@@ -48,10 +48,12 @@ public class Game implements Runnable
 		g = bs.getDrawGraphics();
 		//Draw here
 		
-		
+		g.fillRect(0, 0, width, height);
 		
 		
 		//End Drawing
+		bs.show();
+		g.dispose();
 	}
 	
 	public void run()
