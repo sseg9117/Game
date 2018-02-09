@@ -53,7 +53,7 @@ public class Game implements Runnable
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.drawImage(Assets.dirt, 10, 10, null);
+		g.drawImage(Assets.dirt, x, 10, null);
 		
 		//End Drawing
 		bs.show();
@@ -64,10 +64,36 @@ public class Game implements Runnable
 	{
 		init();
 		
+		int fps = 60;
+		double timePerTick = 1000000000 / fps;
+		double delta = 0;
+		long now;
+		long lastTime = System.nanoTime();
+		long timer = 0;
+		int ticks = 0;
+		
 		while(running)
 		{
-			tick();
-			render();
+			now = System.nanoTime();
+			delta += (now - lastTime) / timePerTick;
+			timer += now - lastTime;
+			lastTime = now;
+			
+			
+			if(delta >= 1)
+			{
+				tick();
+				render();
+				ticks++;
+				delta--;
+			}
+			
+			if(timer >= 1000000000)
+			{
+				System.out.println("Ticks and Frames: " + ticks);
+				ticks = 0;
+				timer = 0;
+			}
 		}
 		stop();// just in case it doesn't stop
 	}
