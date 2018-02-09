@@ -5,6 +5,9 @@ import java.awt.image.BufferStrategy;
 
 import dev.sheradon.game.display.Display;
 import dev.sheradon.game.gfx.Assets;
+import dev.sheradon.game.state.GameState;
+import dev.sheradon.game.state.MenuState;
+import dev.sheradon.game.state.State;
 
 public class Game implements Runnable
 {
@@ -18,6 +21,9 @@ public class Game implements Runnable
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	//States
+	private State gameState;
+	private State menuState;
 	
 	public Game(String title, int width, int height)
 	{
@@ -29,14 +35,20 @@ public class Game implements Runnable
 	
 	private void init()
 	{
+		
 		Assets.init();
 		display = new Display(title, width, height);
+		
+		gameState = new GameState();
+		menuState = new MenuState();
+		State.setState(gameState);
+		
 	}
-	int x = 0;
 	
 	private void tick()
 	{
-		x += 1;
+		if(State.getState() != null)
+			State.getState().tick();
 	}
 	
 	private void render()
@@ -53,7 +65,8 @@ public class Game implements Runnable
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.drawImage(Assets.dirt, x, 10, null);
+		if(State.getState() != null)
+			State.getState().render(g);
 		
 		//End Drawing
 		bs.show();

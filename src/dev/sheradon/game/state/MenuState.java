@@ -2,11 +2,9 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 
-import dev.sheradon.game.gfx.Assets;
-
-public class GameState extends State
+public class MenuState extends State
 {
-	public GameState()
+	public MenuState()
 	{
 		
 	}
@@ -20,7 +18,7 @@ public class GameState extends State
 	@Override
 	public void render(Graphics g)
 	{
-
+		
 	}
-	
+
 }
