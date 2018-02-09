@@ -2,11 +2,9 @@ package dev.sheradon.game;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.display.Display;
-import dev.sheradon.game.gfx.ImageLoader;
-import dev.sheradon.game.gfx.SpriteSheet;
+import dev.sheradon.game.gfx.Assets;
 
 public class Game implements Runnable
 {
@@ -31,12 +29,14 @@ public class Game implements Runnable
 	
 	private void init()
 	{
+		Assets.init();
 		display = new Display(title, width, height);
 	}
+	int x = 0;
 	
 	private void tick()
 	{
-		
+		x += 1;
 	}
 	
 	private void render()
@@ -53,7 +53,7 @@ public class Game implements Runnable
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		
+		g.drawImage(Assets.dirt, 10, 10, null);
 		
 		//End Drawing
 		bs.show();
