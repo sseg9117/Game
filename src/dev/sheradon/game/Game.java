@@ -1,10 +1,12 @@
 package dev.sheradon.game;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.display.Display;
+import dev.sheradon.game.gfx.ImageLoader;
+import dev.sheradon.game.gfx.SpriteSheet;
 
 public class Game implements Runnable
 {
@@ -18,6 +20,7 @@ public class Game implements Runnable
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	
 	public Game(String title, int width, int height)
 	{
 		this.width = width;
@@ -29,7 +32,6 @@ public class Game implements Runnable
 	private void init()
 	{
 		display = new Display(title, width, height);
-		
 	}
 	
 	private void tick()
