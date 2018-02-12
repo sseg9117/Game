@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import dev.sheradon.game.Game;
 import dev.sheradon.game.entities.creatures.Player;
+import dev.sheradon.game.tile.Tile;
 
 public class GameState extends State
 {
@@ -25,6 +26,7 @@ public class GameState extends State
 	public void render(Graphics g)
 	{
 		player.render(g);
+		Tile.tiles[2].render(g, 0, 0);
 	}
 	
 }
