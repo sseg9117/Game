@@ -5,6 +5,7 @@ import java.awt.image.BufferStrategy;
 
 import dev.sheradon.game.display.Display;
 import dev.sheradon.game.gfx.Assets;
+import dev.sheradon.game.input.KeyManager;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
 import dev.sheradon.game.state.State;
@@ -25,11 +26,15 @@ public class Game implements Runnable
 	private State gameState;
 	private State menuState;
 	
+	//Input
+	private KeyManager keyManager;
+	
 	public Game(String title, int width, int height)
 	{
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		keyManager = new KeyManager();
 		
 	}
 	
@@ -38,15 +43,18 @@ public class Game implements Runnable
 		
 		Assets.init();
 		display = new Display(title, width, height);
+		display.getFrame().addKeyListener(keyManager);
 		
-		gameState = new GameState();
-		menuState = new MenuState();
+		gameState = new GameState(this);
+		menuState = new MenuState(this);
 		State.setState(gameState);
 		
 	}
 	
 	private void tick()
 	{
+		keyManager.tick();
+		
 		if(State.getState() != null)
 			State.getState().tick();
 	}
@@ -62,7 +70,10 @@ public class Game implements Runnable
 		}
 		g = bs.getDrawGraphics();
 		//Clear Screen
+		
 		g.clearRect(0, 0, width, height);
+		
+		
 		//Draw here
 		
 		if(State.getState() != null)
@@ -119,7 +130,10 @@ public class Game implements Runnable
 		thread = new Thread(this);
 		thread.start();
 	}
-	
+	public KeyManager getKeyManager()
+	{
+		return keyManager;
+	}
 	public synchronized void stop()
 	{
 		if(!running)

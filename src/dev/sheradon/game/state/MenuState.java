@@ -2,11 +2,13 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 
+import dev.sheradon.game.Game;
+
 public class MenuState extends State
 {
-	public MenuState()
+	public MenuState(Game game)
 	{
-		
+		super(game);
 	}
 
 	@Override
