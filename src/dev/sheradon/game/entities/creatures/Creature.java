@@ -1,7 +1,6 @@
 package dev.sheradon.game.entities.creatures;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
-
+import dev.sheradon.game.Game;
 import dev.sheradon.game.entities.Entity;
 
 public abstract class Creature extends Entity
@@ -15,9 +14,9 @@ public abstract class Creature extends Entity
 	protected float speed;
 	protected float xMove, yMove;
 
-	public Creature(float x, float y, int width, int height)
+	public Creature(Game game, float x, float y, int width, int height)
 	{
-		super(x, y, width, height);
+		super(game, x, y, width, height);
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove= 0;

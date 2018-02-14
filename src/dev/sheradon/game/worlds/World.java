@@ -2,6 +2,7 @@ package dev.sheradon.game.worlds;
 
 import java.awt.Graphics;
 
+import dev.sheradon.game.Game;
 import dev.sheradon.game.tile.Tile;
 import dev.sheradon.game.utils.Utils;
 
@@ -10,9 +11,11 @@ public class World
 	private int width, height;
 	private int spawnX, spawnY;
 	private int[][] tiles;
+	private Game game;
 	
-	public World(String path)
+	public World(Game game, String path)
 	{
+		this.game = game;
 		loadWorld(path);
 	}
 	
@@ -27,7 +30,7 @@ public class World
 		{
 			for(int x = 0; x < width; x++)
 			{
-				getTile(x, y).render(g, x *Tile.TILEWIDTH, y *Tile.TILEHEIGHT);
+				getTile(x, y).render(g, (int) (x *Tile.TILEWIDTH - game.getGameCamera().getXoffset()), (int) (y *Tile.TILEHEIGHT - game.getGameCamera().getYoffset()));
 			}
 		}
 	}
