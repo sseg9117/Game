@@ -26,11 +26,18 @@ public class World
 	
 	public void render(Graphics g)
 	{
-		for(int y = 0; y <  height; y++)
+		int xStart = (int) Math.max(0, game.getGameCamera().getXoffset() / Tile.TILEWIDTH);
+		int xEnd = (int) Math.min(width,(game.getGameCamera().getXoffset() + game.getWidth()) / Tile.TILEWIDTH +1);
+		int yStart = (int) Math.max(0, game.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
+		int yEnd = (int) Math.min(height, (game.getGameCamera().getYoffset() + game.getWidth()) /  Tile.TILEHEIGHT +1 );
+		
+		
+		for(int y = yStart; y <  yEnd; y++)
 		{
-			for(int x = 0; x < width; x++)
+			for(int x = xStart; x < xEnd; x++)
 			{
-				getTile(x, y).render(g, (int) (x *Tile.TILEWIDTH - game.getGameCamera().getXoffset()), (int) (y *Tile.TILEHEIGHT - game.getGameCamera().getYoffset()));
+				getTile(x, y).render(g, (int) (x *Tile.TILEWIDTH - game.getGameCamera().getXoffset()), 
+						(int) (y *Tile.TILEHEIGHT - game.getGameCamera().getYoffset()));
 			}
 		}
 	}
