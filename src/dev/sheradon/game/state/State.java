@@ -2,7 +2,7 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 
-import dev.sheradon.game.Game;
+import dev.sheradon.game.Handler;
 
 public abstract class State
 {
@@ -20,11 +20,11 @@ public abstract class State
 	
 	//CLASS
 	
-	protected Game game;
+	protected Handler handler;
 	
-	public State(Game game)
+	public State(Handler handler)
 	{
-		this.game = game;
+		this.handler = handler;
 	}
 	
 	public abstract void tick();

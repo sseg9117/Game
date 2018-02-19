@@ -3,19 +3,20 @@ package dev.sheradon.game.worlds;
 import java.awt.Graphics;
 
 import dev.sheradon.game.Game;
+import dev.sheradon.game.Handler;
 import dev.sheradon.game.tile.Tile;
 import dev.sheradon.game.utils.Utils;
 
 public class World
 {
+	private Handler handler;
 	private int width, height;
 	private int spawnX, spawnY;
 	private int[][] tiles;
-	private Game game;
 	
-	public World(Game game, String path)
+	public World(Handler handler, String path)
 	{
-		this.game = game;
+		this.handler = handler;
 		loadWorld(path);
 	}
 	
@@ -26,18 +27,18 @@ public class World
 	
 	public void render(Graphics g)
 	{
-		int xStart = (int) Math.max(0, game.getGameCamera().getXoffset() / Tile.TILEWIDTH);
-		int xEnd = (int) Math.min(width,(game.getGameCamera().getXoffset() + game.getWidth()) / Tile.TILEWIDTH +1);
-		int yStart = (int) Math.max(0, game.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
-		int yEnd = (int) Math.min(height, (game.getGameCamera().getYoffset() + game.getWidth()) /  Tile.TILEHEIGHT +1 );
+		int xStart = (int) Math.max(0, handler.getGameCamera().getXoffset() / Tile.TILEWIDTH);
+		int xEnd = (int) Math.min(width,(handler.getGameCamera().getXoffset() + handler.getWidth()) / Tile.TILEWIDTH +1);
+		int yStart = (int) Math.max(0, handler.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getWidth()) /  Tile.TILEHEIGHT +1 );
 		
 		
 		for(int y = yStart; y <  yEnd; y++)
 		{
 			for(int x = xStart; x < xEnd; x++)
 			{
-				getTile(x, y).render(g, (int) (x *Tile.TILEWIDTH - game.getGameCamera().getXoffset()), 
-						(int) (y *Tile.TILEHEIGHT - game.getGameCamera().getYoffset()));
+				getTile(x, y).render(g, (int) (x *Tile.TILEWIDTH - handler.getGameCamera().getXoffset()), 
+						(int) (y *Tile.TILEHEIGHT - handler.getGameCamera().getYoffset()));
 			}
 		}
 	}

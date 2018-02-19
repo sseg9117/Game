@@ -2,13 +2,13 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 
-import dev.sheradon.game.Game;
+import dev.sheradon.game.Handler;
 
 public class SettingState extends State
 {
-	public SettingState(Game game)
+	public SettingState(Handler handler)
 	{
-		super(game);
+		super(handler);
 	}
 	@Override
 	public void tick()

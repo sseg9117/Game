@@ -2,15 +2,15 @@ package dev.sheradon.game.entities.creatures;
 
 import java.awt.Graphics;
 
-import dev.sheradon.game.Game;
+import dev.sheradon.game.Handler;
 import dev.sheradon.game.gfx.Assets;
 
 public class Player extends Creature
 {
 	
-	public Player(Game game,float x, float y)
+	public Player(Handler handler,float x, float y)
 	{
-		super(game, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class Player extends Creature
 	{
 		getInput();
 		move();
-		game.getGameCamera().centerOnEntity(this);
+		handler.getGameCamera().centerOnEntity(this);
 	}
 
 	private void getInput()
@@ -26,19 +26,19 @@ public class Player extends Creature
 		xMove = 0;
 		yMove = 0;
 		
-		if(game.getKeyManager().up)
+		if(handler.getKeyManager().up)
 			yMove = -speed;
-		if(game.getKeyManager().down)
+		if(handler.getKeyManager().down)
 			yMove = speed;
-		if(game.getKeyManager().left)
+		if(handler.getKeyManager().left)
 			xMove = -speed;
-		if(game.getKeyManager().right)
+		if(handler.getKeyManager().right)
 			xMove = speed;
 	}
 	@Override
 	public void render(Graphics g)
 	{
-		g.drawImage(Assets.player, (int) (x- game.getGameCamera().getXoffset()), (int) (y - game.getGameCamera().getYoffset()), width, height, null);
+		g.drawImage(Assets.player, (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
 	}
 
 }
