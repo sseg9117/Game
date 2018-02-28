@@ -1,27 +1,51 @@
 package dev.sheradon.game.gfx;
 
-import dev.sheradon.game.Game;
+import dev.sheradon.game.Handler;
 import dev.sheradon.game.entities.Entity;
+import dev.sheradon.game.tile.Tile;
 
 public class GameCamera
 {
-	private Game game;
+	private Handler handler;
 	private float xoffset, yoffset;
-	public GameCamera(Game game, float xoffset, float yoffset)
+	
+	public GameCamera(Handler handler, float xoffset, float yoffset)
 	{
-		this.game = game;
+		this.handler = handler;
 		this.xoffset = xoffset;
 		this.yoffset = yoffset;
 	}
+	
+	public void checkBlankSpace()
+	{
+		if(xoffset < 0)
+		{
+			xoffset = 0;
+		}
+		else if(xoffset > handler.getWorld().getWidth() * Tile.TILEWIDTH - handler.getWidth())
+		{
+			xoffset = handler.getWorld().getWidth() * Tile.TILEWIDTH - handler.getWidth();
+		}
+		if(yoffset < 9)
+		{
+			yoffset = 0;
+		}
+		else if(yoffset > handler.getWorld().getHeight() * Tile.TILEHEIGHT - handler.getHeight())
+		{
+			yoffset = handler.getWorld().getHeight() * Tile.TILEHEIGHT - handler.getHeight();
+		}
+	}
 	public void centerOnEntity(Entity e)
 	{
-		xoffset = e.getX() - game.getWidth() / 2 + e.getWidth() / 2;
-		yoffset = e.getY() - game.getHeight() / 2  + e.getHeight() / 2;
+		xoffset = e.getX() - handler.getWidth() / 2 + e.getWidth() / 2;
+		yoffset = e.getY() - handler.getHeight() / 2  + e.getHeight() / 2;
+		checkBlankSpace();
 	}
 	public void move(float xAmt, float yAmt)
 	{
 		xoffset += xAmt;
 		yoffset += yAmt;
+		checkBlankSpace();
 	}
 	public float getXoffset()
 	{
@@ -30,13 +54,16 @@ public class GameCamera
 	public void setXoffset(float xoffset)
 	{
 		this.xoffset = xoffset;
+		checkBlankSpace();
 	}
 	public float getYoffset()
 	{
 		return yoffset;
+
 	}
 	public void setYoffset(float yoffset)
 	{
 		this.yoffset = yoffset;
+		checkBlankSpace();
 	}
 }

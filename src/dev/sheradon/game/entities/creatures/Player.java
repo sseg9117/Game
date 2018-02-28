@@ -1,13 +1,15 @@
 package dev.sheradon.game.entities.creatures;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.gfx.Animation;
 import dev.sheradon.game.gfx.Assets;
 
 public class Player extends Creature
 {
+	//Animations
+	private Animation animLeft;
 	
 	public Player(Handler handler,float x, float y)
 	{
@@ -18,11 +20,17 @@ public class Player extends Creature
 		bounds.width = 16;
 		bounds.height = 17;
 		
+		//Animations
+		animLeft = new Animation(500, Assets.player_left);
+		
 	}
 
 	@Override
 	public void tick()
 	{
+		//Animations
+		animLeft.tick();
+		//Movement
 		getInput();
 		move();
 		handler.getGameCamera().centerOnEntity(this);
@@ -45,12 +53,12 @@ public class Player extends Creature
 	@Override
 	public void render(Graphics g)
 	{
-		g.drawImage(Assets.player, (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
+		g.drawImage(animLeft.getCurrentFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
 		
-		g.setColor(Color.RED);
-		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
-				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
-				bounds.width, bounds.height);
+//		g.setColor(Color.RED);
+//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
+//				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
+//				bounds.width, bounds.height);
 	}
 
 }

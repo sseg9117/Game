@@ -8,9 +8,9 @@ public class Tile
 	//Static STUFF HERE
 	
 	public static Tile[] tiles = new Tile[256];
-	public static Tile stoneTile = new StoneTile(0);
-	public static Tile dirtTile = new DirtTile(1);
-	public static Tile grassTile = new GrassTile(2);
+	public static Tile grassTile = new GrassTile(0);
+	public static Tile stoneTile = new StoneTile(1);
+	public static Tile dirtTile = new DirtTile(2);
 	
 	//CLASS
 	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;

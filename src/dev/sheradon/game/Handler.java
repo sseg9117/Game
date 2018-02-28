@@ -29,7 +29,7 @@ public class Handler
 	
 	public int getHeight()
 	{
-		return getHeight();
+		return game.getHeight();
 	}
 	public Game getGame()
 	{
