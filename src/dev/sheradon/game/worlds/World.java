@@ -2,8 +2,10 @@ package dev.sheradon.game.worlds;
 
 import java.awt.Graphics;
 
-import dev.sheradon.game.Game;
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.entities.EntityManager;
+import dev.sheradon.game.entities.creatures.Player;
+import dev.sheradon.game.entities.statics.Tree;
 import dev.sheradon.game.tile.Tile;
 import dev.sheradon.game.utils.Utils;
 
@@ -13,16 +15,31 @@ public class World
 	private int width, height;
 	private int spawnX, spawnY;
 	private int[][] tiles;
+	//ENtities
+	private EntityManager entityManager;
+	
 	
 	public World(Handler handler, String path)
 	{
 		this.handler = handler;
+		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+		entityManager.addEntity(new Tree(handler, 100, 250));
+		
 		loadWorld(path);
+		
+		entityManager.getPlayer().setX(spawnX);
+		entityManager.getPlayer().setY(spawnY);
+
 	}
 	
+	public EntityManager getEntityManager()
+	{
+		return entityManager;
+	}
+
 	public void tick()
 	{
-		
+		entityManager.tick();
 	}
 	
 	public void render(Graphics g)
@@ -41,6 +58,8 @@ public class World
 						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getYoffset()));
 			}
 		}
+		//ENtities
+		entityManager.render(g);
 	}
 	
 	public Tile getTile(int x, int y)

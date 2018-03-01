@@ -54,7 +54,6 @@ public class GameCamera
 	public void setXoffset(float xoffset)
 	{
 		this.xoffset = xoffset;
-		checkBlankSpace();
 	}
 	public float getYoffset()
 	{
@@ -64,6 +63,5 @@ public class GameCamera
 	public void setYoffset(float yoffset)
 	{
 		this.yoffset = yoffset;
-		checkBlankSpace();
 	}
 }

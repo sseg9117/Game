@@ -1,5 +1,6 @@
 package dev.sheradon.game.entities.creatures;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -10,32 +11,35 @@ import dev.sheradon.game.gfx.Assets;
 public class Player extends Creature
 {
 	//Animations
-	private Animation animLeft;
-	private Animation animRight;
-	private Animation animStill;
+	private Animation animleft;
+	private Animation animright;
+	private Animation animup;
+	private Animation animdown;
 	
 	public Player(Handler handler,float x, float y)
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 		
 		bounds.x = 10;
-		bounds.y = 20;
-		bounds.width = 35;
-		bounds.height = 42;
+		bounds.y = 10;
+		bounds.width = 32;
+		bounds.height = 38;
 		
 		//Animations
-		animLeft = new Animation(1000, Assets.player_left);
-		animRight = new Animation(1000, Assets.player_right);
-		animStill = new Animation(1000, Assets.player_still);
+		animleft = new Animation(1000, Assets.player_left);
+		animright = new Animation(1000, Assets.player_right);
+		animup = new Animation(1000, Assets.player_up);
+		animdown = new Animation(1000, Assets.player_down);
 	}
 
 	@Override
 	public void tick()
 	{
 		//Animations
-		animLeft.tick();
-		animRight.tick();
-		animStill.tick();
+		animleft.tick();
+		animright.tick();
+		animup.tick();
+		animdown.tick();
 		//Movement
 		getInput();
 		move();
@@ -70,19 +74,19 @@ public class Player extends Creature
 	{
 		if(xMove < 0)
 		{
-			return animLeft.getCurrentFrame();
+			return animleft.getCurrentFrame();
 		}
 		else if(xMove > 0)
 		{
-			return animRight.getCurrentFrame();
+			return animright.getCurrentFrame();
 		}
 		else if(yMove < 0)
 		{
-			return animStill.getCurrentFrame();
+			return animup.getCurrentFrame();
 		}
 		else
 		{
-			return animStill.getCurrentFrame();
+			return animdown.getCurrentFrame();
 		}
 	}
 
