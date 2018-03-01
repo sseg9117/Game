@@ -20,7 +20,7 @@ public class Player extends Creature
 		
 		bounds.x = 10;
 		bounds.y = 20;
-		bounds.width = 37;
+		bounds.width = 35;
 		bounds.height = 42;
 		
 		//Animations

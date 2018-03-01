@@ -30,15 +30,15 @@ public class World
 		int xStart = (int) Math.max(0, handler.getGameCamera().getXoffset() / Tile.TILEWIDTH);
 		int xEnd = (int) Math.min(width,(handler.getGameCamera().getXoffset() + handler.getWidth()) / Tile.TILEWIDTH +1);
 		int yStart = (int) Math.max(0, handler.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
-		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getHeight()) /  Tile.TILEHEIGHT +1 );
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getHeight()) /  Tile.TILEHEIGHT +1);
 		
 		
 		for(int y = yStart; y <  yEnd; y++)
 		{
 			for(int x = xStart; x < xEnd; x++)
 			{
-				getTile(x, y).render(g, (int) (x *Tile.TILEWIDTH - handler.getGameCamera().getXoffset()), 
-						(int) (y *Tile.TILEHEIGHT - handler.getGameCamera().getYoffset()));
+				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getXoffset()), 
+						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getYoffset()));
 			}
 		}
 	}
@@ -69,7 +69,7 @@ public class World
 		{
 			for(int x = 0; x < width; x++)
 			{
-				tiles[x][y] = Utils.parseInt(tokens[(x +y * width) + 4]);
+				tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 4]);
 			}
 		}
 		

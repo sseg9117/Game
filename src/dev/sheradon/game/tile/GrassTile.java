@@ -9,5 +9,9 @@ public class GrassTile extends Tile
 	{
 		super(Assets.grass, id);
 	}
-
+	@Override
+	public boolean isSolid()
+	{
+		return true;
+	}
 }

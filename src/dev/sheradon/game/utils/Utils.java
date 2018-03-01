@@ -4,8 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Utils
+public class Utils 
 {
+	
 	public static String loadFileAsString(String path)
 	{
 		StringBuilder builder = new StringBuilder();
@@ -18,8 +19,8 @@ public class Utils
 				builder.append(line + "\n");
 			
 			br.close();
-		}
-		catch(IOException e){
+		}catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 		
@@ -27,7 +28,7 @@ public class Utils
 	}
 	
 	public static int parseInt(String number)
-	{ 
+	{
 		try
 		{
 			return Integer.parseInt(number);
@@ -35,7 +36,8 @@ public class Utils
 		catch(NumberFormatException e)
 		{
 			e.printStackTrace();
+			return 0;
 		}
-		return 0;
 	}
+
 }
