@@ -9,8 +9,8 @@ public class Tile
 	
 	public static Tile[] tiles = new Tile[256];
 	public static Tile grassTile = new GrassTile(0);
-	public static Tile stoneTile = new StoneTile(1);
-	public static Tile dirtTile = new DirtTile(2);
+	public static Tile dirtTile = new DirtTile(1);
+	public static Tile stoneTile = new StoneTile(2);
 	
 	//CLASS
 	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
@@ -24,8 +24,6 @@ public class Tile
 		this.id = id;
 		
 		tiles[id] = this;
-		tiles[0] = this;
-		
 	}
 	
 	public void tick()
@@ -35,7 +33,7 @@ public class Tile
 	
 	public void render(Graphics g, int x, int y)
 	{
-		g.drawImage(texture, x, y, TILEWIDTH, TILEHEIGHT,null);
+		g.drawImage(texture, x, y, TILEWIDTH, TILEHEIGHT, null);
 	}
 	public boolean isSolid()
 	{

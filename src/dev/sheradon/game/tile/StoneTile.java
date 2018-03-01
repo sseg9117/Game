@@ -1,7 +1,5 @@
 package dev.sheradon.game.tile;
 
-import java.awt.image.BufferedImage;
-
 import dev.sheradon.game.gfx.Assets;
 
 public class StoneTile extends Tile

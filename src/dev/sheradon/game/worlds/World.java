@@ -30,7 +30,7 @@ public class World
 		int xStart = (int) Math.max(0, handler.getGameCamera().getXoffset() / Tile.TILEWIDTH);
 		int xEnd = (int) Math.min(width,(handler.getGameCamera().getXoffset() + handler.getWidth()) / Tile.TILEWIDTH +1);
 		int yStart = (int) Math.max(0, handler.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
-		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getWidth()) /  Tile.TILEHEIGHT +1 );
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getHeight()) /  Tile.TILEHEIGHT +1 );
 		
 		
 		for(int y = yStart; y <  yEnd; y++)
