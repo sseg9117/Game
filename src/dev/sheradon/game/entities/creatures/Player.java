@@ -1,6 +1,5 @@
 package dev.sheradon.game.entities.creatures;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -19,11 +18,11 @@ public class Player extends Creature
 	public Player(Handler handler,float x, float y)
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
-		
-		bounds.x = 10;
-		bounds.y = 10;
-		bounds.width = 32;
-		bounds.height = 38;
+
+		bounds.x = 12;
+		bounds.y = 12;
+		bounds.width = 22;
+		bounds.height = 28;
 		
 		//Animations
 		animleft = new Animation(500, Assets.player_left);

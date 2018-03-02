@@ -8,12 +8,12 @@ public class Handler
 {
 	private Game game;
 	private World world;
-	
+
 	public Handler(Game game)
 	{
 		this.game = game;
 	}
-	
+
 	public GameCamera getGameCamera()
 	{
 		return game.getGameCamera();
@@ -26,7 +26,7 @@ public class Handler
 	{
 		return game.getWidth();
 	}
-	
+
 	public int getHeight()
 	{
 		return game.getHeight();

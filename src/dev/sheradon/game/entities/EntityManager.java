@@ -18,13 +18,13 @@ public class EntityManager
 		@Override
 		public int compare(Entity a, Entity b)
 		{
-			if(a.getY() + a.getHeight() < b.getY() + b.getHeight())
-				return - 1;
+			if (a.getY() + a.getHeight() < b.getY() + b.getHeight())
+				return -1;
 			return 1;
 		}
-		
+
 	};
-	
+
 	public EntityManager(Handler handler, Player player)
 	{
 		this.handler = handler;
@@ -32,25 +32,25 @@ public class EntityManager
 		entities = new ArrayList<Entity>();
 		addEntity(player);
 	}
-	
+
 	public void tick()
 	{
-		for(int i = 0; i < entities.size();i++)
+		for (int i = 0; i < entities.size(); i++)
 		{
 			Entity e = entities.get(i);
 			e.tick();
 		}
 		entities.sort(renderSorter);
 	}
-	
+
 	public void render(Graphics g)
 	{
-		for(Entity e: entities)
+		for (Entity e : entities)
 		{
 			e.render(g);
 		}
 	}
-	
+
 	public void addEntity(Entity e)
 	{
 		entities.add(e);

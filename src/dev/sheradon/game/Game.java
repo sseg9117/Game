@@ -16,86 +16,85 @@ public class Game implements Runnable
 	private Display display;
 	private int width, height;
 	public String title;
-	
+
 	private boolean running = false;
 	private Thread thread;
-	
+
 	private BufferStrategy bs;
 	private Graphics g;
-	
-	//States
+
+	// States
 	private State gameState;
 	private State menuState;
-	
-	//Input
+
+	// Input
 	private KeyManager keyManager;
-	
-	
-	//Camera
+
+	// Camera
 	private GameCamera gameCamera;
-	
+	// Handler
+	private Handler handler;
+
 	public Game(String title, int width, int height)
 	{
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
-		
+
 	}
-	
+
 	private void init()
 	{
-		
-		Assets.init();
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
-		
+		Assets.init();
+
 		handler = new Handler(this);
-		gameCamera = new GameCamera(handler, 0,0);
-		
+		gameCamera = new GameCamera(handler, 0, 0);
+
 		gameState = new GameState(handler);
-		menuState = new MenuState(handler);
+		setMenuState(new MenuState(handler));
 		State.setState(gameState);
-		
+
 	}
-	
+
 	private void tick()
 	{
 		keyManager.tick();
-		
-		if(State.getState() != null)
+
+		if (State.getState() != null)
 			State.getState().tick();
 	}
-	
+
 	private void render()
 	{
 		bs = display.getCanvas().getBufferStrategy();
-		if(bs == null)
+		if (bs == null)
 		{
 			display.getCanvas().createBufferStrategy(3);
 			return;
-			
+
 		}
 		g = bs.getDrawGraphics();
-		//Clear Screen
-		
+		// Clear Screen
+
 		g.clearRect(0, 0, width, height);
-		
-		
-		//Draw here
-		
-		if(State.getState() != null)
+
+		// Draw here
+
+		if (State.getState() != null)
 			State.getState().render(g);
-		
-		//End Drawing
+
+		// End Drawing
 		bs.show();
 		g.dispose();
 	}
-	
+
 	public void run()
 	{
 		init();
-		
+
 		int fps = 60;
 		double timePerTick = 1000000000 / fps;
 		double delta = 0;
@@ -103,24 +102,23 @@ public class Game implements Runnable
 		long lastTime = System.nanoTime();
 		long timer = 0;
 		int ticks = 0;
-		
-		while(running)
+
+		while (running)
 		{
 			now = System.nanoTime();
 			delta += (now - lastTime) / timePerTick;
 			timer += now - lastTime;
 			lastTime = now;
-			
-			
-			if(delta >= 1)
+
+			if (delta >= 1)
 			{
 				tick();
 				render();
 				ticks++;
 				delta--;
 			}
-			
-			if(timer >= 1000000000)
+
+			if (timer >= 1000000000)
 			{
 				System.out.println("Ticks and Frames: " + ticks);
 				ticks = 0;
@@ -129,43 +127,37 @@ public class Game implements Runnable
 		}
 		stop();// just in case it doesn't stop
 	}
-	
+
+	public KeyManager getKeyManager()
+	{
+		return keyManager;
+	}
 	public GameCamera getGameCamera()
 	{
 		return gameCamera;
 	}
-	
-	private Handler handler;
-	{
-		
-	}
-	
+
 	public int getWidth()
 	{
 		return width;
 	}
-	
+
 	public int getHeight()
 	{
 		return height;
 	}
 	public synchronized void start()
 	{
-		if(running)
+		if (running)
 			return;
 		running = true;
 		thread = new Thread(this);
 		thread.start();
 	}
-	public KeyManager getKeyManager()
-	{
-		return keyManager;
-	}
-	
-	
+
 	public synchronized void stop()
 	{
-		if(!running)
+		if (!running)
 			return;
 		running = false;
 		try
@@ -175,5 +167,15 @@ public class Game implements Runnable
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public State getMenuState()
+	{
+		return menuState;
+	}
+
+	public void setMenuState(State menuState)
+	{
+		this.menuState = menuState;
 	}
 }
