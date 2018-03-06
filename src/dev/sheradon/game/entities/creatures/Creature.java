@@ -7,9 +7,9 @@ import dev.sheradon.game.tile.Tile;
 public abstract class Creature extends Entity
 {
 	public static final int DEFAULT_HEALTH = 10;
-	public static final float DEFAULT_SPEED = 4.0f;
-	public static final int DEFAULT_CREATURE_WIDTH = 32,
-			DEFAULT_CREATURE_HEIGHT = 32;
+	public static final float DEFAULT_SPEED = 3.0f;
+	public static final int DEFAULT_CREATURE_WIDTH = 64,
+			DEFAULT_CREATURE_HEIGHT = 64;
 
 	protected int health;
 	protected float speed;
@@ -40,11 +40,9 @@ public abstract class Creature extends Entity
 					/ Tile.TILEWIDTH;
 
 			if (!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-					&& !collisionWithTile(tx,
-							(int) (y + bounds.y + bounds.height)
-									/ Tile.TILEHEIGHT))
+					&& !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
 			{
-				x = +xMove;
+				x += xMove;
 			} else
 			{
 				x = tx * Tile.TILEWIDTH - bounds.x - bounds.width - 1;
@@ -57,11 +55,9 @@ public abstract class Creature extends Entity
 			int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
 
 			if (!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-					&& !collisionWithTile(tx,
-							(int) (y + bounds.y + bounds.height)
-									/ Tile.TILEHEIGHT))
+					&& !collisionWithTile(tx,(int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
 			{
-				x = +xMove;
+				x += xMove;
 			} else
 			{
 				x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x;

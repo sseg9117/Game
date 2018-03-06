@@ -20,16 +20,16 @@ public class Player extends Creature
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-		bounds.x = 5;
-		bounds.y = 8;
-		bounds.width = 22;
-		bounds.height = 23;
+		bounds.x = 10;
+		bounds.y = 16;
+		bounds.width = 44;
+		bounds.height = 46;
 		
 		//Animations
-		animleft = new Animation(500, Assets.player_left);
-		animright = new Animation(500, Assets.player_right);
-		animup = new Animation(500, Assets.player_up);
-		animdown = new Animation(500, Assets.player_down);
+		animleft = new Animation(300, Assets.player_left);
+		animright = new Animation(300, Assets.player_right);
+		animup = new Animation(1, Assets.player_up);
+		animdown = new Animation(1, Assets.player_down);
 	}
 
 	@Override
@@ -64,11 +64,11 @@ public class Player extends Creature
 	public void render(Graphics g)
 	{
 		g.drawImage(getCurrentAnimationFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
-		
-		g.setColor(Color.RED);
-		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
-				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
-				bounds.width, bounds.height);
+//		
+//		g.setColor(Color.RED);
+//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
+//				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
+//				bounds.width, bounds.height);
 	}
 	private BufferedImage getCurrentAnimationFrame()
 	{
