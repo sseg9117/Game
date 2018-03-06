@@ -7,6 +7,7 @@ import dev.sheradon.game.display.Display;
 import dev.sheradon.game.gfx.Assets;
 import dev.sheradon.game.gfx.GameCamera;
 import dev.sheradon.game.input.KeyManager;
+import dev.sheradon.game.input.MouseManager;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
 import dev.sheradon.game.state.State;
@@ -24,11 +25,12 @@ public class Game implements Runnable
 	private Graphics g;
 
 	// States
-	private State gameState;
-	private State menuState;
+	public State gameState;
+	public State menuState;
 
 	// Input
 	private KeyManager keyManager;
+	private MouseManager mouseManager;
 
 	// Camera
 	private GameCamera gameCamera;
@@ -41,6 +43,7 @@ public class Game implements Runnable
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
+		mouseManager = new MouseManager();
 
 	}
 
@@ -48,6 +51,10 @@ public class Game implements Runnable
 	{
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseListener(mouseManager);
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
 
 		handler = new Handler(this);
@@ -55,7 +62,7 @@ public class Game implements Runnable
 
 		gameState = new GameState(handler);
 		setMenuState(new MenuState(handler));
-		State.setState(gameState);
+		State.setState(menuState);
 
 	}
 
@@ -131,6 +138,10 @@ public class Game implements Runnable
 	public KeyManager getKeyManager()
 	{
 		return keyManager;
+	}
+	public MouseManager getMouseManager()
+	{
+		return mouseManager;
 	}
 	public GameCamera getGameCamera()
 	{
