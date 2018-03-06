@@ -19,9 +19,10 @@ public class Assets
 		player_left = new BufferedImage[8];
 		player_up = new BufferedImage[1];
 		player_down = new BufferedImage[1];
-		player_still = new BufferedImage[1];
+		player_still = new BufferedImage[2];
 		
-		player_still[0] = sheet.crop(width * 4, height * 2, width, height);
+		player_still[0] = sheet.crop(width * 3, 0, width, height);
+		player_still[1] = sheet.crop(width * 5, height * 2, width, height);
 		
 		player_up[0] = sheet.crop(width * 4, 0, width, height);
 
@@ -36,14 +37,14 @@ public class Assets
 		player_right[6] = sheet.crop(width * 4, height * 1, width, height);
 		player_right[7] = sheet.crop(width * 5, height * 1, width, height);
 		
-		player_left[0] = sheet.crop(width * 6, height * 1, width, height);
-		player_left[1] = sheet.crop(width * 7, height * 1, width, height);
-		player_left[2] = sheet.crop(width * 3, height * 2, width, height);
-		player_left[3] = sheet.crop(width * 4, height * 2, width, height);
-		player_left[4] = sheet.crop(width * 5, height * 2, width, height);
-		player_left[5] = sheet.crop(width * 6, height * 2, width, height);
-		player_left[6] = sheet.crop(width * 7, height * 2, width, height);
-		player_left[7] = sheet.crop(width * 3, height * 3, width, height);
+		player_left[7] = sheet.crop(width * 6, height * 1, width, height);
+		player_left[6] = sheet.crop(width * 7, height * 1, width, height);
+		player_left[5] = sheet.crop(width * 3, height * 2, width, height);
+		player_left[4] = sheet.crop(width * 4, height * 2, width, height);
+		player_left[3] = sheet.crop(width * 5, height * 2, width, height);
+		player_left[2] = sheet.crop(width * 6, height * 2, width, height);
+		player_left[1] = sheet.crop(width * 7, height * 2, width, height);
+		player_left[0] = sheet.crop(width * 3, height * 3, width, height);
 
 		grass = sheet.crop(width * 0, 0, width, height);
 		stone = sheet.crop(width * 1, 0, width, height);
