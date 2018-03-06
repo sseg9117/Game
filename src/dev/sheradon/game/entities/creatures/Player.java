@@ -15,6 +15,7 @@ public class Player extends Creature
 	private Animation animright;
 	private Animation animup;
 	private Animation animdown;
+	private Animation animstill;
 	
 	public Player(Handler handler,float x, float y)
 	{
@@ -26,10 +27,11 @@ public class Player extends Creature
 		bounds.height = 46;
 		
 		//Animations
-		animleft = new Animation(300, Assets.player_left);
-		animright = new Animation(300, Assets.player_right);
-		animup = new Animation(1, Assets.player_up);
-		animdown = new Animation(1, Assets.player_down);
+		animleft = new Animation(150, Assets.player_left);
+		animright = new Animation(150, Assets.player_right);
+		animup = new Animation(150, Assets.player_up);
+		animdown = new Animation(150, Assets.player_down);
+		animstill = new Animation(150, Assets.player_still);
 	}
 
 	@Override
@@ -40,6 +42,7 @@ public class Player extends Creature
 		animright.tick();
 		animup.tick();
 		animdown.tick();
+		animstill.tick();
 		//Movement
 		getInput();
 		move();
@@ -84,10 +87,16 @@ public class Player extends Creature
 		{
 			return animup.getCurrentFrame();
 		}
-		else
+		else if(yMove >= 0)
 		{
 			return animdown.getCurrentFrame();
 		}
+		else
+		{
+			return animup.getCurrentFrame();
+		}
+
+	
 	}
 
 }
