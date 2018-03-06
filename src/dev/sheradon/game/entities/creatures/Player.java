@@ -1,5 +1,6 @@
 package dev.sheradon.game.entities.creatures;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -19,10 +20,10 @@ public class Player extends Creature
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-		bounds.x = 12;
-		bounds.y = 12;
+		bounds.x = 5;
+		bounds.y = 8;
 		bounds.width = 22;
-		bounds.height = 28;
+		bounds.height = 23;
 		
 		//Animations
 		animleft = new Animation(500, Assets.player_left);
@@ -64,10 +65,10 @@ public class Player extends Creature
 	{
 		g.drawImage(getCurrentAnimationFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
 		
-//		g.setColor(Color.RED);
-//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
-//				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
-//				bounds.width, bounds.height);
+		g.setColor(Color.RED);
+		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
+				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
+				bounds.width, bounds.height);
 	}
 	private BufferedImage getCurrentAnimationFrame()
 	{

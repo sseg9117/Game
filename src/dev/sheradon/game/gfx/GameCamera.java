@@ -21,13 +21,13 @@ public class GameCamera
 		if (xoffset < 0)
 		{
 			xoffset = 0;
-		} else if (xoffset > handler.getWorld().getWidth() * Tile.TILEWIDTH
+		} else if (xoffset > handler.getWorld().getWidth() * Tile.TILEWIDTH 
 				- handler.getWidth())
 		{
 			xoffset = handler.getWorld().getWidth() * Tile.TILEWIDTH
 					- handler.getWidth();
 		}
-		if (yoffset < 9)
+		if (yoffset < 0)
 		{
 			yoffset = 0;
 		} else if (yoffset > handler.getWorld().getHeight() * Tile.TILEHEIGHT

@@ -21,8 +21,7 @@ public class World
 	public World(Handler handler, String path)
 	{
 		this.handler = handler;
-		entityManager = new EntityManager(handler,
-				new Player(handler, 1000, 700));
+		entityManager = new EntityManager(handler, new Player(handler, 1000, 700));
 		entityManager.addEntity(new Tree(handler, 100, 250));
 
 		loadWorld(path);
@@ -44,26 +43,16 @@ public class World
 
 	public void render(Graphics g)
 	{
-		int xStart = (int) Math.max(0,
-				handler.getGameCamera().getXoffset() / Tile.TILEWIDTH);
-		int xEnd = (int) Math.min(width,
-				(handler.getGameCamera().getXoffset() + handler.getWidth())
-						/ Tile.TILEWIDTH + 1);
-		int yStart = (int) Math.max(0,
-				handler.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
-		int yEnd = (int) Math.min(height,
-				(handler.getGameCamera().getYoffset() + handler.getHeight())
-						/ Tile.TILEHEIGHT + 1);
+		int xStart = (int) Math.max(0, handler.getGameCamera().getXoffset() / Tile.TILEWIDTH);
+		int xEnd = (int) Math.min(width, (handler.getGameCamera().getXoffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);
+		int yStart = (int) Math.max(0, handler.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getHeight()) / Tile.TILEHEIGHT + 1);
 
 		for (int y = yStart; y < yEnd; y++)
 		{
 			for (int x = xStart; x < xEnd; x++)
 			{
-				getTile(x, y).render(g,
-						(int) (x * Tile.TILEWIDTH
-								- handler.getGameCamera().getXoffset()),
-						(int) (y * Tile.TILEHEIGHT
-								- handler.getGameCamera().getYoffset()));
+				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getXoffset()), (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getYoffset()));
 			}
 		}
 		// ENtities
