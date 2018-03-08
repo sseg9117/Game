@@ -2,6 +2,7 @@ package dev.sheradon.game;
 
 import dev.sheradon.game.gfx.GameCamera;
 import dev.sheradon.game.input.KeyManager;
+import dev.sheradon.game.input.MouseManager;
 import dev.sheradon.game.worlds.World;
 
 public class Handler
@@ -21,6 +22,10 @@ public class Handler
 	public KeyManager getKeyManager()
 	{
 		return game.getKeyManager();
+	}
+	public MouseManager getMouseManager()
+	{
+		return game.getMouseManager();
 	}
 	public int getWidth()
 	{
