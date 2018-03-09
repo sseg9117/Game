@@ -14,7 +14,7 @@ public abstract class Creature extends Entity
 	protected int health;
 	protected float speed;
 	protected float xMove, yMove;
-
+	public boolean isJumping;
 	public Creature(Handler handler, float x, float y, int width, int height)
 	{
 		super(handler, x, y, width, height);
