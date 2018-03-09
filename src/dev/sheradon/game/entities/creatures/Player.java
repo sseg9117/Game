@@ -93,7 +93,7 @@ public class Player extends Creature
 		}
 		else
 		{
-			return animup.getCurrentFrame();
+			return animstill.getCurrentFrame();
 		}
 
 	

@@ -21,18 +21,17 @@ public class Assets
 		player_left = new BufferedImage[8];
 		player_up = new BufferedImage[1];
 		player_down = new BufferedImage[1];
-		player_still = new BufferedImage[2];
+		player_still = new BufferedImage[1];
 		
 		btn_start = new BufferedImage[2];
 		btn_start[0] = sheet.crop(width *6, height *4, width *2, height);
 		btn_start[1] = sheet.crop(width *6, height *5, width *2, height);
 		
-		player_still[0] = sheet.crop(width * 3, 0, width, height);
-		player_still[1] = sheet.crop(width * 5, height * 2, width, height);
+		player_still[0] = sheet.crop(width * 4, height * 3, width, height);
 		
-		player_up[0] = sheet.crop(width * 4, 0, width, height);
+		player_up[0] = sheet.crop(width * 4, height * 3, width, height);
 
-		player_down[0] = sheet.crop(width * 4, height * 2, width, height);
+		player_down[0] = sheet.crop(width * 4, height * 3, width, height);
 
 		player_right[0] = sheet.crop(width * 3, 0, width, height);
 		player_right[1] = sheet.crop(width * 4, 0, width, height);
