@@ -15,9 +15,9 @@ public abstract class UIObject
 	{	
 		this.x = x;
 		this.y = y;
+		bounds = new Rectangle((int) x, (int) y, width, height);
 		this.width = width;
 		this.height = height;
-		bounds = new Rectangle((int) x, (int) y, width, height);
 				
 	}
 	
@@ -72,24 +72,24 @@ public abstract class UIObject
 		this.width = width;
 	}
 
+	public boolean isHovering()
+	{
+		return hovering;
+	}
+	
+	public void setHovering(boolean hovering)
+	{
+		this.hovering = hovering;
+	}
+	
 	public int getHeight()
 	{
 		return height;
 	}
-
 	public void setHeight(int height)
 	{
 		this.height = height;
 	}
 
-	public boolean isHovering()
-	{
-		return hovering;
-	}
-
-	public void setHovering(boolean hovering)
-	{
-		this.hovering = hovering;
-	}
 
 }

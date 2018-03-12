@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.gfx.Animation;
 import dev.sheradon.game.gfx.Assets;
-
+//USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public class Player extends Creature
 {
 	//Animations

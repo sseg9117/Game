@@ -15,26 +15,26 @@ public class Handler
 		this.game = game;
 	}
 
-	public GameCamera getGameCamera()
-	{
-		return game.getGameCamera();
-	}
 	public KeyManager getKeyManager()
 	{
 		return game.getKeyManager();
+	}
+	public GameCamera getGameCamera()
+	{
+		return game.getGameCamera();
 	}
 	public MouseManager getMouseManager()
 	{
 		return game.getMouseManager();
 	}
-	public int getWidth()
-	{
-		return game.getWidth();
-	}
-
+	
 	public int getHeight()
 	{
 		return game.getHeight();
+	}
+	public int getWidth()
+	{
+		return game.getWidth();
 	}
 	public Game getGame()
 	{
@@ -46,13 +46,13 @@ public class Handler
 		this.game = game;
 	}
 
-	public World getWorld()
-	{
-		return world;
-	}
-
+	
 	public void setWorld(World world)
 	{
 		this.world = world;
+	}
+	public World getWorld()
+	{
+		return world;
 	}
 }

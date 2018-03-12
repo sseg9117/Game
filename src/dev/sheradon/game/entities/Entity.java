@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import dev.sheradon.game.Handler;
-
+//USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public abstract class Entity
 {
 	protected Handler handler;

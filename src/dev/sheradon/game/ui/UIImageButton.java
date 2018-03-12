@@ -2,7 +2,7 @@ package dev.sheradon.game.ui;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-
+//Googled how to use buttons on ui and got a little help from stackoverflow
 public class UIImageButton extends UIObject
 {
 	private BufferedImage [] images;

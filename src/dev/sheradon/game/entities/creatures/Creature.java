@@ -3,7 +3,7 @@ package dev.sheradon.game.entities.creatures;
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.entities.Entity;
 import dev.sheradon.game.tile.Tile;
-
+//USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public abstract class Creature extends Entity
 {
 	public static final int DEFAULT_HEALTH = 10;

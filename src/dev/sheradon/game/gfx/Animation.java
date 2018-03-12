@@ -1,7 +1,7 @@
 package dev.sheradon.game.gfx;
 
 import java.awt.image.BufferedImage;
-
+//Got some of this from a stackoverflow looking up "animation in java"
 public class Animation
 {
 	private int speed, index;
@@ -16,7 +16,6 @@ public class Animation
 		index = 0;
 		timer = 0;
 		lastTime = System.currentTimeMillis();
-
 	}
 
 	public void tick()
