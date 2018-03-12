@@ -1,5 +1,6 @@
 package dev.sheradon.game.entities.statics;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import dev.sheradon.game.Handler;
@@ -13,10 +14,10 @@ public class Tree extends StaticEntity
 	{
 		super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT * 2);
 
-		bounds.x = 10;
-		bounds.y = (int) (height / 1.5f);
-		bounds.width = width - 20;
-		bounds.height = (int) (height - height / 1.5f);
+		bounds.x = (int) (20.55f);
+		bounds.y = (int) (height / 2.3f);
+		bounds.width = width - 40;
+		bounds.height = (int) (height - height / 2.1f);
 	}
 
 	@Override
