@@ -38,7 +38,7 @@ public class KeyManager implements KeyListener
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-
+		
 	}
 
 }
