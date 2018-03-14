@@ -6,6 +6,7 @@ import dev.sheradon.game.Handler;
 import dev.sheradon.game.entities.EntityManager;
 import dev.sheradon.game.entities.creatures.Player;
 import dev.sheradon.game.entities.statics.Tree;
+import dev.sheradon.game.items.ItemManager;
 import dev.sheradon.game.tile.Tile;
 import dev.sheradon.game.utils.Utils;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video and used stackoverflow for a little help with bounds.
@@ -17,12 +18,16 @@ public class World
 	private int[][] tiles;
 	// ENtities
 	private EntityManager entityManager;
-
+	
+	private ItemManager itemManager;
+	
 	public World(Handler handler, String path)
 	{
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 1000, 700));
+		itemManager = new ItemManager(handler);
 		entityManager.addEntity(new Tree(handler, 100, 250));
+		
 
 		loadWorld(path);
 
@@ -38,6 +43,7 @@ public class World
 
 	public void tick()
 	{
+		itemManager.tick();
 		entityManager.tick();
 	}
 
@@ -55,6 +61,8 @@ public class World
 				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getXoffset()), (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getYoffset()));
 			}
 		}
+		//items
+		itemManager.render(g);
 		// ENtities
 		entityManager.render(g);
 	}
@@ -100,4 +108,25 @@ public class World
 	{
 		return height;
 	}
+
+	public Handler getHandler()
+	{
+		return handler;
+	}
+
+	public void setHandler(Handler handler)
+	{
+		this.handler = handler;
+	}
+
+	public ItemManager getItemManager()
+	{
+		return itemManager;
+	}
+
+	public void setItemManager(ItemManager itemManager)
+	{
+		this.itemManager = itemManager;
+	}
+	
 }

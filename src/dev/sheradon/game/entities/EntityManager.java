@@ -42,7 +42,7 @@ public class EntityManager
 			Entity e = it.next();
 			e.tick();
 			if(!e.isActive())
-				entities.remove(e);
+				it.remove();
 		}
 		entities.sort(renderSorter);
 	}
