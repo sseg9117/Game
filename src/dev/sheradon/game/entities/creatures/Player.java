@@ -75,6 +75,11 @@ public class Player extends Creature
 //				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
 //				bounds.width, bounds.height);
 	}
+	@Override
+	public void die()
+	{
+		System.out.println("Game Over");
+	}
 	private BufferedImage getCurrentAnimationFrame()
 	{
 		if(xMove < 0)
