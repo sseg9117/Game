@@ -21,10 +21,10 @@ public class Player extends Creature
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-		bounds.x = 10;
+		bounds.x = 11;
 		bounds.y = 16;
-		bounds.width = 44;
-		bounds.height = 46;
+		bounds.width = 33;
+		bounds.height = 47;
 		
 		//Animations
 		animleft = new Animation(100, Assets.player_left);
