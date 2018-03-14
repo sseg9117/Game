@@ -1,12 +1,15 @@
 package dev.sheradon.game.entities.creatures;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+
+import javax.swing.text.html.parser.Entity;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.gfx.Animation;
 import dev.sheradon.game.gfx.Assets;
+import dev.sheradon.game.entities.*;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public class Player extends Creature
 {
@@ -48,7 +51,46 @@ public class Player extends Creature
 		move();
 		handler.getGameCamera().centerOnEntity(this);
 	}
-
+//		//Attack method if i need it
+//		checkAttacks();
+//	}
+//	
+//	private void checkAttacks()
+//	{
+//		Rectangle cb = getCollisionBounds(0,0);
+//		Rectangle ar = new Rectangle();
+//		int arSize = 20;
+//		ar.width = arSize;
+//		ar.height = arSize;
+//		
+//		if(handler.getKeyManager().attackLeft)
+//		{
+//			ar.x = cb.x - arSize;
+//			ar.y = cb.y + cb.height /2 - arSize /2;
+//		}
+//		else if(handler.getKeyManager().attackRight)
+//		{
+//			ar.x = cb.x + cb.width;
+//			ar.y = cb.y + cb.height /2 - arSize /2;
+//		}
+//		else
+//		{
+//			return;
+//		}
+//		
+//		for(dev.sheradon.game.entities.Entity e : handler.getWorld().getEntityManager().getEntities())
+//			{	
+//				if(e.equals(this))
+//					continue;
+//			
+//				if(e.getCollisionBounds(0,0).intersects(ar))
+//				{
+//					e.hurt(1);
+//					return;
+//				}
+//			}
+//		
+//	}
 	private void getInput()
 	{
 		xMove = 0;

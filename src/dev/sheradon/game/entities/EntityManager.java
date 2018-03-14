@@ -3,6 +3,7 @@ package dev.sheradon.game.entities;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.entities.creatures.Player;
@@ -35,9 +36,10 @@ public class EntityManager
 
 	public void tick()
 	{
-		for (int i = 0; i < entities.size(); i++)
+		Iterator<Entity> it = entities.iterator();
+		while(it.hasNext())
 		{
-			Entity e = entities.get(i);
+			Entity e = it.next();
 			e.tick();
 			if(!e.isActive())
 				entities.remove(e);

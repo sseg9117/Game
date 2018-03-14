@@ -7,7 +7,7 @@ public class KeyManager implements KeyListener
 {
 	private boolean[] keys;
 	public boolean up, down, left, right, space;
-	public boolean Attack;
+	public boolean attackLeft, attackRight;
 	
 	public KeyManager()
 	{
@@ -22,7 +22,8 @@ public class KeyManager implements KeyListener
 		right = keys[KeyEvent.VK_D];
 		space = keys[KeyEvent.VK_SPACE];
 		
-		Attack = keys[KeyEvent.VK_E];
+		attackLeft = keys[KeyEvent.VK_E];
+		attackRight = keys[KeyEvent.VK_E];
 	}
 
 	@Override
