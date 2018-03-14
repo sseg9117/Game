@@ -1,15 +1,12 @@
 package dev.sheradon.game.entities.creatures;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-
-import javax.swing.text.html.parser.Entity;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.gfx.Animation;
 import dev.sheradon.game.gfx.Assets;
-import dev.sheradon.game.entities.*;
+import dev.sheradon.game.inventory.Inventory;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public class Player extends Creature
 {
@@ -19,6 +16,8 @@ public class Player extends Creature
 	private Animation animup;
 	private Animation animdown;
 	private Animation animstill;
+	
+	private Inventory inventory;
 	
 	public Player(Handler handler,float x, float y)
 	{
@@ -35,6 +34,8 @@ public class Player extends Creature
 		animup = new Animation(100, Assets.player_up);
 		animdown = new Animation(100, Assets.player_down);
 		animstill = new Animation(500, Assets.player_still);
+		
+		inventory = new Inventory(handler);
 	}
 
 	@Override
@@ -50,6 +51,7 @@ public class Player extends Creature
 		getInput();
 		move();
 		handler.getGameCamera().centerOnEntity(this);
+		inventory.tick();
 	}
 //		//Attack method if i need it
 //		checkAttacks();
@@ -111,6 +113,7 @@ public class Player extends Creature
 	public void render(Graphics g)
 	{
 		g.drawImage(getCurrentAnimationFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
+		inventory.render(g);
 //		
 //		g.setColor(Color.RED);
 //		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
@@ -146,6 +149,16 @@ public class Player extends Creature
 		}
 
 	
+	}
+
+	public Inventory getInventory()
+	{
+		return inventory;
+	}
+
+	public void setInventory(Inventory inventory)
+	{
+		this.inventory = inventory;
 	}
 
 }
