@@ -16,7 +16,6 @@ public class Player extends Creature
 	private Animation animup;
 	private Animation animdown;
 	private Animation animstill;
-	
 	private Inventory inventory;
 	
 
@@ -109,9 +108,6 @@ public class Player extends Creature
 			xMove = speed; 
 		if(falling || jumping)
 			yMove += gravity;
-		if(handler.getKeyManager().space)
-			yMove = -10;
-
 	}
 	@Override
 	public void render(Graphics2D g)
