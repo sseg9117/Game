@@ -7,22 +7,26 @@ import dev.sheradon.game.tile.Tile;
 public abstract class Creature extends Entity
 {
 
-	public static final float DEFAULT_SPEED = 3.0f;
+	public static final float DEFAULT_SPEED = 5.0f;
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
 			DEFAULT_CREATURE_HEIGHT = 64;
-
-
+	protected float gravity;
+    protected boolean falling;
+    protected boolean jumping;
+    protected boolean moving;
 	protected float speed;
 	protected float xMove, yMove;
-	public boolean isJumping;
+	
 	public Creature(Handler handler, float x, float y, int width, int height)
 	{
 		super(handler, x, y, width, height);
 		speed = DEFAULT_SPEED;
+		gravity = 4.0f;
+		jumping = false;
+		falling = true;
 		xMove = 0;
 		yMove = 0;
 	}
-
 	public void move()
 	{
 		if (!checkEntityCollision(xMove, 0f))
@@ -30,7 +34,6 @@ public abstract class Creature extends Entity
 		if (!checkEntityCollision(0f, yMove))
 			moveY();
 	}
-
 	public void moveX()
 	{
 		if (xMove > 0)// Moving right
@@ -42,7 +45,8 @@ public abstract class Creature extends Entity
 					&& !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
 			{
 				x += xMove;
-			} else
+			} 
+			else
 			{
 				x = tx * Tile.TILEWIDTH - bounds.x - bounds.width - 1;
 			}
@@ -57,7 +61,8 @@ public abstract class Creature extends Entity
 					&& !collisionWithTile(tx,(int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
 			{
 				x += xMove;
-			} else
+			}
+			else
 			{
 				x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x;
 			}
@@ -75,11 +80,15 @@ public abstract class Creature extends Entity
 							/ Tile.TILEWIDTH, ty))
 			{
 				y += yMove;
-			} else
+				
+			
+			} 
+			else
 			{
 				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
 			}
-		} else if (yMove > 0)
+		} 
+		else if (yMove > 0)
 		{
 			int ty = (int) (y + yMove + bounds.y + bounds.height)
 					/ Tile.TILEHEIGHT;
@@ -89,7 +98,8 @@ public abstract class Creature extends Entity
 							/ Tile.TILEWIDTH, ty))
 			{
 				y += yMove;
-			} else
+			} 
+			else
 			{
 				y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
 			}
@@ -103,6 +113,26 @@ public abstract class Creature extends Entity
 
 	}
 	// GETTERS SETTERS
+	public boolean isFalling()
+	{
+		return falling;
+	}
+
+	public void setFalling(boolean falling)
+	{
+		this.falling = falling;
+	}
+
+	public boolean isJumping()
+	{
+		return jumping;
+	}
+
+	public void setJumping(boolean jumping)
+	{
+		this.jumping = jumping;
+	}
+
 	public float getxMove()
 	{
 		return xMove;
@@ -142,5 +172,36 @@ public abstract class Creature extends Entity
 	{
 		this.speed = speed;
 	}
+	public float getGravity()
+	{
+		return gravity;
+	}
 
+	public void setGravity(float gravity)
+	{
+		this.gravity = gravity;
+	}
+
+	public boolean isMoving()
+	{
+		return moving;
+	}
+
+	public void setMoving(boolean moving)
+	{
+		this.moving = moving;
+	}
+	public static float getDefaultSpeed()
+	{
+		return DEFAULT_SPEED;
+	}
+	public static int getDefaultCreatureWidth()
+	{
+		return DEFAULT_CREATURE_WIDTH;
+	}
+	public static int getDefaultCreatureHeight()
+	{
+		return DEFAULT_CREATURE_HEIGHT;
+	}
+	
 }

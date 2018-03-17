@@ -1,6 +1,6 @@
 package dev.sheradon.game.entities;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -47,7 +47,7 @@ public class EntityManager
 		entities.sort(renderSorter);
 	}
 
-	public void render(Graphics g)
+	public void render(Graphics2D g)
 	{
 		for (Entity e : entities)
 		{

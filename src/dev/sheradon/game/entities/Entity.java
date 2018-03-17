@@ -1,23 +1,29 @@
 package dev.sheradon.game.entities;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.gfx.SpriteSheet;
+import dev.sheradon.game.state.GameState;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public abstract class Entity
 {
 	public static final int DEFAULT_HEALTH = 10;
 	
 	protected Handler handler;
-	protected float x, y;
+	
+	protected double x;
+	protected double y;
 	protected int width, height;
 	protected int health;
 	protected boolean active = true;
-
+	
 	protected Rectangle bounds;
 
-	public Entity(Handler handler, float x, float y, int width, int height)
+	public Entity(Handler handler, double x, double y, int width, int height)
 	{
 		this.handler = handler;
 		this.x = x;
@@ -28,9 +34,13 @@ public abstract class Entity
 
 		bounds = new Rectangle(0, 0, width, height);
 	}
+	public Entity(SpriteSheet sheet, double x2, double y2, GameState state)
+	{
+		// TODO Auto-generated constructor stub
+	}
 	public abstract void tick();
 
-	public abstract void render(Graphics g);
+	public abstract void render(Graphics2D g);
 	
 	public abstract void die();
 	
@@ -62,22 +72,22 @@ public abstract class Entity
 				(int) (y + bounds.y + yOffset), bounds.width, bounds.height);
 	}
 
-	public float getX()
+	public double getX()
 	{
 		return x;
 	}
 
-	public void setX(float x)
+	public void setX(double x)
 	{
 		this.x = x;
 	}
 
-	public float getY()
+	public double getY()
 	{
 		return y;
 	}
 
-	public void setY(float y)
+	public void setY(double y)
 	{
 		this.y = y;
 	}

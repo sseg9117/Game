@@ -7,7 +7,8 @@ import dev.sheradon.game.tile.Tile;
 public class GameCamera
 {
 	private Handler handler;
-	private float xoffset, yoffset;
+	private double xoffset;
+	private double yoffset;
 
 	public GameCamera(Handler handler, float xoffset, float yoffset)
 	{
@@ -49,7 +50,7 @@ public class GameCamera
 		yoffset += yAmt;
 		checkBlankSpace();
 	}
-	public float getXoffset()
+	public double getXoffset()
 	{
 		return xoffset;
 	}
@@ -57,7 +58,7 @@ public class GameCamera
 	{
 		this.xoffset = xoffset;
 	}
-	public float getYoffset()
+	public double getYoffset()
 	{
 		return yoffset;
 

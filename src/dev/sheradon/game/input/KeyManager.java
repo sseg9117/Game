@@ -32,8 +32,8 @@ public class KeyManager implements KeyListener
 			{
 				justPressed[i] = true;
 			}
+			
 		}
-		
 		if(keyJustPressed(KeyEvent.VK_TAB))
 		{
 			System.out.println("Just pressed");
@@ -48,7 +48,10 @@ public class KeyManager implements KeyListener
 		attackLeft = keys[KeyEvent.VK_E];
 		attackRight = keys[KeyEvent.VK_E];
 	}
-
+	public void Jump(KeyEvent e)
+	{
+		
+	}
 	public boolean keyJustPressed(int keyCode)
 	{
 		if(keyCode < 0 || keyCode >= keys.length)

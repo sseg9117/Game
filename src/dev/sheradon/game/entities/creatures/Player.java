@@ -1,6 +1,6 @@
 package dev.sheradon.game.entities.creatures;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.Handler;
@@ -18,6 +18,8 @@ public class Player extends Creature
 	private Animation animstill;
 	
 	private Inventory inventory;
+	
+
 	
 	public Player(Handler handler,float x, float y)
 	{
@@ -48,8 +50,8 @@ public class Player extends Creature
 		animdown.tick();
 		animstill.tick();
 		//Movement
-		getInput();
 		move();
+		getInput();
 		handler.getGameCamera().centerOnEntity(this);
 		inventory.tick();
 	}
@@ -97,7 +99,6 @@ public class Player extends Creature
 	{
 		xMove = 0;
 		yMove = 0;
-		
 		if(handler.getKeyManager().up)
 			yMove = -speed;
 		if(handler.getKeyManager().down)
@@ -105,12 +106,15 @@ public class Player extends Creature
 		if(handler.getKeyManager().left)
 			xMove = -speed;
 		if(handler.getKeyManager().right)
-			xMove = speed;
+			xMove = speed; 
+		if(falling || jumping)
+			yMove += gravity;
 		if(handler.getKeyManager().space)
-			yMove = - 4; 
+			yMove = -10;
+
 	}
 	@Override
-	public void render(Graphics g)
+	public void render(Graphics2D g)
 	{
 		g.drawImage(getCurrentAnimationFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
 		inventory.render(g);

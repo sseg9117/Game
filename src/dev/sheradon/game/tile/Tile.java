@@ -1,6 +1,6 @@
 package dev.sheradon.game.tile;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public class Tile
@@ -31,7 +31,7 @@ public class Tile
 
 	}
 
-	public void render(Graphics g, int x, int y)
+	public void render(Graphics2D g, int x, int y)
 	{
 		g.drawImage(texture, x, y, TILEWIDTH, TILEHEIGHT, null);
 	}

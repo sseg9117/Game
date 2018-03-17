@@ -9,7 +9,7 @@ public class Assets
 	public static BufferedImage dirt, sky, grass, stone, tree;
 	public static BufferedImage[] player_right, player_left, player_up,
 			player_down, player_still;
-	public static BufferedImage[] btn_start;
+	public static BufferedImage[] btn_start, btn_menu;
 
 	public static void init()
 	{
@@ -22,6 +22,10 @@ public class Assets
 		stone = sheet.crop(width * 1, 0, width, height);
 		dirt = sheet.crop(width * 2, 0, width, height);
 		tree = sheet.crop(width * 0, height * 1, width, height * 2);
+		
+		btn_menu = new BufferedImage[2];
+		btn_menu[0] = sheet.crop(width *6, height *4, width *2, height);
+		btn_menu[1] = sheet.crop(width *6, height *5, width *2, height);
 		
 		btn_start = new BufferedImage[2];
 		btn_start[0] = sheet.crop(width *6, height *4, width *2, height);

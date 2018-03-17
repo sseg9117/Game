@@ -15,6 +15,7 @@ public class Handler
 		this.game = game;
 	}
 
+	
 	public KeyManager getKeyManager()
 	{
 		return game.getKeyManager();

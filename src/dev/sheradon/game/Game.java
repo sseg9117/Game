@@ -1,6 +1,8 @@
 package dev.sheradon.game;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
 import dev.sheradon.game.display.Display;
@@ -17,11 +19,11 @@ public class Game implements Runnable
 	private Display display;
 	private int width, height;
 	public String title;
-	
+
 	private boolean running = false;
 	private Thread thread;
 	private BufferStrategy bs;
-	private Graphics g;
+	private Graphics2D g;
 
 	// States i will be adding more as i write more code
 	public State gameState;
@@ -61,7 +63,6 @@ public class Game implements Runnable
 		gameState = new GameState(handler);
 		setMenuState(new MenuState(handler));
 		State.setState(menuState);
-
 	}
 
 	private void tick()
@@ -81,19 +82,22 @@ public class Game implements Runnable
 			return;
 
 		}
-		g = bs.getDrawGraphics();
-		// Clear Screen
 
-		g.clearRect(0, 0, width, height);
+		Graphics g = bs.getDrawGraphics();
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.translate(-6, -28);
+		// Clear Screen
+		g2d.setColor(Color.YELLOW);
+		g2d.clearRect(1, 1, width, height);
+		g2d.fillRect(0, 0, width, height);
 
 		// Draw here
-
 		if (State.getState() != null)
-			State.getState().render(g);
+			State.getState().render(g2d);
 
 		// End Drawing
-		bs.show();
 		g.dispose();
+		bs.show();
 	}
 
 	public void run()
@@ -123,12 +127,12 @@ public class Game implements Runnable
 				delta--;
 			}
 
-//			if (timer >= 1000000000)
-//			{
-//				System.out.println("Ticks and Frames: " + ticks);
-//				ticks = 0;
-//				timer = 0;
-//			}
+			// if (timer >= 1000000000)
+			// {
+			// System.out.println("Ticks and Frames: " + ticks);
+			// ticks = 0;
+			// timer = 0;
+			// }
 		}
 		stop();// just in case it doesn't stop
 	}
@@ -187,4 +191,5 @@ public class Game implements Runnable
 	{
 		this.menuState = menuState;
 	}
+	
 }
