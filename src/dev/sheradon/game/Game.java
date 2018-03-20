@@ -12,6 +12,7 @@ import dev.sheradon.game.input.KeyManager;
 import dev.sheradon.game.input.MouseManager;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
+import dev.sheradon.game.state.OptionState;
 import dev.sheradon.game.state.State;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public class Game implements Runnable
@@ -28,6 +29,7 @@ public class Game implements Runnable
 	// States i will be adding more as i write more code
 	public State gameState;
 	public State menuState;
+	public State optionState;
 	// Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
@@ -60,7 +62,9 @@ public class Game implements Runnable
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
 
+		
 		gameState = new GameState(handler);
+		optionState = new OptionState(handler);
 		setMenuState(new MenuState(handler));
 		State.setState(menuState);
 	}

@@ -34,6 +34,8 @@ public class MenuState extends State
 				{
 					e.printStackTrace();
 				}
+				handler.getMouseManager().setUIManager(null);
+				State.setState(handler.getGame().gameState);
 			}
 			}));
 	

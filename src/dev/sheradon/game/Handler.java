@@ -3,6 +3,7 @@ package dev.sheradon.game;
 import dev.sheradon.game.gfx.GameCamera;
 import dev.sheradon.game.input.KeyManager;
 import dev.sheradon.game.input.MouseManager;
+import dev.sheradon.game.state.OptionState;
 import dev.sheradon.game.worlds.World;
 
 public class Handler
@@ -56,4 +57,5 @@ public class Handler
 	{
 		return world;
 	}
+
 }
