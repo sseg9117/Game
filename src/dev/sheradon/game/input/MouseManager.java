@@ -4,8 +4,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import dev.sheradon.game.state.OptionState;
-import dev.sheradon.game.ui.OptionManager;
 import dev.sheradon.game.ui.UIManager;
 
 public class MouseManager implements MouseListener, MouseMotionListener
@@ -13,7 +11,6 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	private boolean leftPressed, rightPressed;
 	private int mouseX, mouseY;
 	private UIManager uiManager;
-	private OptionState optionState;
 	
 	public MouseManager()
 	{
@@ -101,11 +98,6 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	public void mouseExited(MouseEvent e)
 	{
 		
-	}
-
-	public OptionState getOptionState()
-	{
-		return optionState;
 	}
 
 }

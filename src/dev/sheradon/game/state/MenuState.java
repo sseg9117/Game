@@ -24,21 +24,10 @@ public class MenuState extends State
 			@Override
 			public void onCick()
 			{
-				if (!running)
-					return;
-				running = false;
-				try
-				{
-					thread.join();
-				} catch (InterruptedException e)
-				{
-					e.printStackTrace();
-				}
 				handler.getMouseManager().setUIManager(null);
 				State.setState(handler.getGame().gameState);
-			}
-			}));
-	
+			}}));
+
 		uiManager.addObject(new UIImageButton(352, 200, 256, 128, Assets.btn_start, new ClickListener() 
 		{
 			public void onCick()
