@@ -13,14 +13,14 @@ public class OptionState extends State
 {
 	private boolean running = false;
 	private Thread thread;
-	private OptionManager optionState;
+	private OptionManager optionManager;
 	public OptionState(Handler handler)
 	{
 		super(handler);
-		optionState = new OptionManager(handler);
-		handler.getMouseManager().setOptionManager(optionState);
+		optionManager = new OptionManager(handler);
+		handler.getMouseManager().setOptionManager(optionManager);
 
-		optionState.setObjects(new UIImageButton(352, 200, 256, 128, Assets.btn_start, new ClickListener() 
+		optionManager.setObjects(new UIImageButton(352, 200, 256, 128, Assets.btn_start, new ClickListener() 
 		{
 			public void onCick()
 			{
@@ -31,13 +31,13 @@ public class OptionState extends State
 	@Override
 	public void tick()
 	{
-		optionState.tick();
+		optionManager.tick();
 	}
 
 	@Override
 	public void render(Graphics2D g)
 	{
-		optionState.render(g);
+		optionManager.render(g);
 	}
 
 	

@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import dev.sheradon.game.state.OptionState;
+import dev.sheradon.game.ui.OptionManager;
 import dev.sheradon.game.ui.UIManager;
 
 public class MouseManager implements MouseListener, MouseMotionListener
@@ -23,9 +24,9 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	{
 		this.uiManager = uiManager;
 	}
-	public void setOptionState(OptionState optionState)
+	public void setOptionManager(OptionManager optionManager)
 	{
-		this.setOptionState(optionState);
+		this.setOptionManager(optionManager);
 	}
 	
 		//Getters

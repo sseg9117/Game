@@ -71,5 +71,11 @@ public class OptionManager
 	{
 		objects.remove(o);
 	}
+
+	public void setObjects(UIImageButton uiImageButton)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
