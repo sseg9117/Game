@@ -21,10 +21,6 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	{
 		this.uiManager = uiManager;
 	}
-	public void setOptionManager(OptionManager optionManager)
-	{
-		this.setOptionManager(optionManager);
-	}
 	
 		//Getters
 		public boolean isLeftPressed()
