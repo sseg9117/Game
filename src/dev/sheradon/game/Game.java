@@ -89,7 +89,7 @@ public class Game implements Runnable
 		g2d.translate(-6, -28);
 		// Clear Screen
 		g2d.setColor(Color.YELLOW);
-		g2d.clearRect(1, 1, width, height);
+		g2d.clearRect(2, 2, width, height);
 		g2d.fillRect(0, 0, width, height);
 
 		// Draw here

@@ -27,8 +27,8 @@ public class Player extends Creature
 
 		bounds.x = 11;
 		bounds.y = 16;
-		bounds.width = 33;
-		bounds.height = 47;
+		bounds.width = 34;
+		bounds.height = 48;
 		
 		//Animations
 		animleft = new Animation(100, Assets.player_left);
