@@ -11,6 +11,7 @@ public abstract class Creature extends Entity
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
 			DEFAULT_CREATURE_HEIGHT = 64;
 	protected float gravity;
+	protected float jump;
     protected boolean falling;
     protected boolean jumping;
     protected boolean moving;
@@ -22,6 +23,7 @@ public abstract class Creature extends Entity
 		super(handler, x, y, width, height);
 		speed = DEFAULT_SPEED;
 		gravity = 4.0f;
+		jump = -speed -5;
 		jumping = false;
 		falling = true;
 		xMove = 0;
@@ -106,7 +108,6 @@ public abstract class Creature extends Entity
 		}
 
 	}
-
 	protected boolean collisionWithTile(int x, int y)
 	{
 		return handler.getWorld().getTile(x, y).isSolid();

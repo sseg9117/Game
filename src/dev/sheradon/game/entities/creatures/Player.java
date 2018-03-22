@@ -16,6 +16,7 @@ public class Player extends Creature
 	private Animation animup;
 	private Animation animdown;
 	private Animation animstill;
+	private Animation animjump;
 	private Inventory inventory;
 	
 
@@ -35,6 +36,7 @@ public class Player extends Creature
 		animup = new Animation(100, Assets.player_up);
 		animdown = new Animation(100, Assets.player_down);
 		animstill = new Animation(500, Assets.player_still);
+		animjump = new Animation(100, Assets.player_jump);
 		
 		inventory = new Inventory(handler);
 	}
@@ -48,6 +50,7 @@ public class Player extends Creature
 		animup.tick();
 		animdown.tick();
 		animstill.tick();
+		animjump.tick();
 		//Movement
 		move();
 		getInput();
@@ -94,12 +97,11 @@ public class Player extends Creature
 //			}
 //		
 //	}
+
 	private void getInput()
 	{
 		xMove = 0;
 		yMove = 0;
-		if(handler.getKeyManager().up)
-			yMove = -speed;
 		if(handler.getKeyManager().down)
 			yMove = speed;
 		if(handler.getKeyManager().left)
@@ -108,6 +110,9 @@ public class Player extends Creature
 			xMove = speed; 
 		if(falling || jumping)
 			yMove += gravity;
+		if(handler.getKeyManager().space)
+			yMove = jump;
+				
 	}
 	@Override
 	public void render(Graphics2D g)
@@ -142,6 +147,10 @@ public class Player extends Creature
 		else if(yMove > 0)
 		{
 			return animdown.getCurrentFrame();
+		}
+		else if(yMove < 0)
+		{
+			return animjump.getCurrentFrame();
 		}
 		else
 		{

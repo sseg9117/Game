@@ -50,7 +50,9 @@ public class KeyManager implements KeyListener
 	}
 	public void Jump(KeyEvent e)
 	{
-		
+		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
+			return;
+		keys[e.getKeyCode()] = true;
 	}
 	public boolean keyJustPressed(int keyCode)
 	{
