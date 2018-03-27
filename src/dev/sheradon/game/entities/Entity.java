@@ -1,9 +1,7 @@
 package dev.sheradon.game.entities;
 
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.gfx.SpriteSheet;

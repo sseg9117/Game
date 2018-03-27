@@ -23,7 +23,7 @@ public class Game implements Runnable
 	private boolean running = false;
 	private Thread thread;
 	private BufferStrategy bs;
-	private Graphics2D g;
+	private Graphics2D g2d;
 
 	// States i will be adding more as i write more code
 	public State gameState;
@@ -86,10 +86,9 @@ public class Game implements Runnable
 
 		Graphics g = bs.getDrawGraphics();
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.translate(-6, -28);
 		// Clear Screen
 		g2d.setColor(Color.YELLOW);
-		g2d.clearRect(2, 2, width, height);
+		g2d.clearRect(0, 0, width, height);
 		g2d.fillRect(0, 0, width, height);
 
 		// Draw here
@@ -97,8 +96,8 @@ public class Game implements Runnable
 			State.getState().render(g2d);
 
 		// End Drawing
-		g.dispose();
 		bs.show();
+		g.dispose();
 	}
 
 	public void run()
@@ -128,12 +127,12 @@ public class Game implements Runnable
 				delta--;
 			}
 
-			// if (timer >= 1000000000)
-			// {
-			// System.out.println("Ticks and Frames: " + ticks);
-			// ticks = 0;
-			// timer = 0;
-			// }
+			 if (timer >= 1000000000)
+			 {
+			 System.out.println("Ticks and Frames: " + ticks);
+			 ticks = 0;
+			 timer = 0;
+			 }
 		}
 		stop();// just in case it doesn't stop
 	}
@@ -191,6 +190,16 @@ public class Game implements Runnable
 	public void setMenuState(State menuState)
 	{
 		this.menuState = menuState;
+	}
+
+	public Graphics2D getG2d()
+	{
+		return g2d;
+	}
+
+	public void setG2d(Graphics2D g2d)
+	{
+		this.g2d = g2d;
 	}
 	
 }

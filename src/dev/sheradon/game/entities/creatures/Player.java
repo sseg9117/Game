@@ -1,6 +1,7 @@
 package dev.sheradon.game.entities.creatures;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.Handler;
@@ -25,10 +26,10 @@ public class Player extends Creature
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-		bounds.x = 11;
-		bounds.y = 16;
-		bounds.width = 34;
-		bounds.height = 48;
+		bounds.x = 12;
+		bounds.y = 17;
+		bounds.width = 35;
+		bounds.height = 42;
 		
 		//Animations
 		animleft = new Animation(100, Assets.player_left);
@@ -56,47 +57,47 @@ public class Player extends Creature
 		getInput();
 		handler.getGameCamera().centerOnEntity(this);
 		inventory.tick();
+	
+		//Attack method if i need it
+		checkAttacks();
 	}
-//		//Attack method if i need it
-//		checkAttacks();
-//	}
-//	
-//	private void checkAttacks()
-//	{
-//		Rectangle cb = getCollisionBounds(0,0);
-//		Rectangle ar = new Rectangle();
-//		int arSize = 20;
-//		ar.width = arSize;
-//		ar.height = arSize;
-//		
-//		if(handler.getKeyManager().attackLeft)
-//		{
-//			ar.x = cb.x - arSize;
-//			ar.y = cb.y + cb.height /2 - arSize /2;
-//		}
-//		else if(handler.getKeyManager().attackRight)
-//		{
-//			ar.x = cb.x + cb.width;
-//			ar.y = cb.y + cb.height /2 - arSize /2;
-//		}
-//		else
-//		{
-//			return;
-//		}
-//		
-//		for(dev.sheradon.game.entities.Entity e : handler.getWorld().getEntityManager().getEntities())
-//			{	
-//				if(e.equals(this))
-//					continue;
-//			
-//				if(e.getCollisionBounds(0,0).intersects(ar))
-//				{
-//					e.hurt(1);
-//					return;
-//				}
-//			}
-//		
-//	}
+	
+	private void checkAttacks()
+	{
+		Rectangle cb = getCollisionBounds(0,0);
+		Rectangle ar = new Rectangle();
+		int arSize = 20;
+		ar.width = arSize;
+		ar.height = arSize;
+		
+		if(handler.getKeyManager().attackLeft)
+		{
+			ar.x = cb.x - arSize;
+			ar.y = cb.y + cb.height /2 - arSize /2;
+		}
+		else if(handler.getKeyManager().attackRight)
+		{
+			ar.x = cb.x + cb.width;
+			ar.y = cb.y + cb.height /2 - arSize /2;
+		}
+		else
+		{
+			return;
+		}
+		
+		for(dev.sheradon.game.entities.Entity e : handler.getWorld().getEntityManager().getEntities())
+			{	
+				if(e.equals(this))
+					continue;
+			
+				if(e.getCollisionBounds(0,0).intersects(ar))
+				{
+					e.hurt(1);
+					return;
+				}
+			}
+		
+	}
 
 	private void getInput()
 	{

@@ -2,13 +2,14 @@ package dev.sheradon.game.display;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 
 import javax.swing.JFrame;
 
 public class Display
 {
+	private JFrame menu;
 	private JFrame frame;
+	private Canvas menuScreen;
 	private Canvas canvas;
 
 	private String title;
@@ -21,6 +22,7 @@ public class Display
 		this.height = height;
 
 		createDisplay();
+		createMenu();
 	}
 
 	private void createDisplay()
@@ -36,9 +38,22 @@ public class Display
 		canvas.setPreferredSize(new Dimension(width, height));
 		canvas.setMaximumSize(new Dimension(width, height));
 		canvas.setMinimumSize(new Dimension(width, height));
-		canvas.setFocusable(false);
-
+		canvas.setFocusable(false);		
+		
 		frame.add(canvas);
+		frame.pack();		
+	}
+	
+	private void createMenu()
+	{
+		
+		menuScreen = new Canvas();
+		menuScreen.setPreferredSize(new Dimension(width, height));
+		menuScreen.setMaximumSize(new Dimension(width, height));
+		menuScreen.setMinimumSize(new Dimension(width, height));
+		menuScreen.setFocusable(false);
+		
+		frame.add(menuScreen);
 		frame.pack();
 	}
 
@@ -52,8 +67,24 @@ public class Display
 		return canvas;
 	}
 
-	public void render(Graphics2D g, double x, double y)
+	public JFrame getMenu()
 	{
-		
+		return menu;
 	}
+
+	public void setMenu(JFrame menu)
+	{
+		this.menu = menu;
+	}
+
+	public Canvas getMenuScreen()
+	{
+		return menuScreen;
+	}
+
+	public void setMenuScreen(Canvas menuScreen)
+	{
+		this.menuScreen = menuScreen;
+	}
+
 }

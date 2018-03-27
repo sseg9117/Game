@@ -18,18 +18,10 @@ public class MenuState extends State
 		super(handler);
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
-		
+
 		uiManager.addObject(new UIImageButton(352, 400, 256, 128, Assets.btn_menu, new ClickListener() 
 		{
 			@Override
-			public void onCick()
-			{
-				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().gameState);
-			}}));
-
-		uiManager.addObject(new UIImageButton(352, 200, 256, 128, Assets.btn_start, new ClickListener() 
-		{
 			public void onCick()
 			{
 				handler.getMouseManager().setUIManager(null);
@@ -48,6 +40,26 @@ public class MenuState extends State
 	{
 		
 		uiManager.render(g);
+	}
+
+	public boolean isRunning()
+	{
+		return running;
+	}
+
+	public void setRunning(boolean running)
+	{
+		this.running = running;
+	}
+
+	public Thread getThread()
+	{
+		return thread;
+	}
+
+	public void setThread(Thread thread)
+	{
+		this.thread = thread;
 	}
 
 }
