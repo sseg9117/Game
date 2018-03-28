@@ -12,7 +12,7 @@ public class Item
 	// handler
 	
 	public static Item[] items = new Item[256];
-	public static Item dirtItem = new Item(Assets.dirt, "Dirt" , 0);
+	public static Item woodItem = new Item(Assets.wood, "Wood" , 0);
 	
 	//class
 	public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;
