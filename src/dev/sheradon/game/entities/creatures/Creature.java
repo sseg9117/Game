@@ -22,12 +22,16 @@ public abstract class Creature extends Entity
 	{
 		super(handler, x, y, width, height);
 		speed = DEFAULT_SPEED;
-		gravity = 4.0f;
-		jump = -speed -5;
+		gravity = speed;
 		jumping = false;
 		falling = true;
 		xMove = 0;
 		yMove = 0;
+	}
+	public void jumping()
+	{
+		if(jumping)
+			yMove = -speed;
 	}
 	public void move()
 	{
@@ -114,16 +118,6 @@ public abstract class Creature extends Entity
 
 	}
 	// GETTERS SETTERS
-	public boolean isFalling()
-	{
-		return falling;
-	}
-
-	public void setFalling(boolean falling)
-	{
-		this.falling = falling;
-	}
-
 	public boolean isJumping()
 	{
 		return jumping;
