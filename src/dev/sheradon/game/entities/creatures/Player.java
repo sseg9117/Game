@@ -127,11 +127,23 @@ public class Player extends Creature
 //				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
 //				bounds.width, bounds.height);
 	}
+	
+	public void hurt(int amt)
+	{
+		health -= amt;
+		if(health <=0)
+		{
+			active = false;
+			die();
+		}
+	}
+	
 	@Override
 	public void die()
 	{
 		System.out.println("Game Over");
 	}
+	
 	private BufferedImage getCurrentAnimationFrame()
 	{
 		if(xMove < 0)
