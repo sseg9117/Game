@@ -8,7 +8,6 @@ public class LavaTile extends Tile
 	public LavaTile(int id)
 	{
 		super(Assets.lava, id);
-		
 	}
 
 	@Override
@@ -16,10 +15,9 @@ public class LavaTile extends Tile
 	{
 		return true;
 	}
-	@Override
+	
 	public boolean hurt()
 	{
 		return true;
 	}
-	
 }

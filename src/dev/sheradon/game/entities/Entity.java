@@ -4,8 +4,6 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import dev.sheradon.game.Handler;
-import dev.sheradon.game.gfx.SpriteSheet;
-import dev.sheradon.game.state.GameState;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public abstract class Entity
 {
@@ -31,10 +29,6 @@ public abstract class Entity
 		health = DEFAULT_HEALTH;
 
 		bounds = new Rectangle(0, 0, width, height);
-	}
-	public Entity(SpriteSheet sheet, double x2, double y2, GameState state)
-	{
-		// TODO Auto-generated constructor stub
 	}
 	public abstract void tick();
 

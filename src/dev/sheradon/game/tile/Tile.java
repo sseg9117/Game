@@ -18,7 +18,6 @@ public class Tile
 
 	// CLASS
 	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
-
 	protected BufferedImage texture;
 	protected final int id;
 
@@ -39,6 +38,7 @@ public class Tile
 	{
 		g.drawImage(texture, x, y, TILEWIDTH, TILEHEIGHT, null);
 	}
+	
 	public boolean isSolid()
 	{
 		return false;
@@ -48,9 +48,5 @@ public class Tile
 	{
 		return id;
 	}
-	public boolean hurt()
-	{
-		return false;
-	}
-
+	
 }

@@ -13,6 +13,6 @@ public class LeafTile extends Tile
 	@Override
 	public boolean isSolid()
 	{
-		return false;
+		return true;
 	}
 }

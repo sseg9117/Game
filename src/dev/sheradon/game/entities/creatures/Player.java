@@ -128,16 +128,6 @@ public class Player extends Creature
 //				bounds.width, bounds.height);
 	}
 	
-	public void hurt(int amt)
-	{
-		health -= amt;
-		if(health <=0)
-		{
-			active = false;
-			die();
-		}
-	}
-	
 	@Override
 	public void die()
 	{
