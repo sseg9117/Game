@@ -19,7 +19,7 @@ public class MenuState extends State
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
 
-		uiManager.addObject(new UIImageButton(352, 400, 256, 128, Assets.btn_menu, new ClickListener() 
+		uiManager.addObject(new UIImageButton(352, 200, 256, 128, Assets.btn_menu, new ClickListener() 
 		{
 			@Override
 			public void onCick()
