@@ -22,6 +22,7 @@ public class Assets
 		stone = sheet.crop(width * 1, 0, width, height);
 		dirt = sheet.crop(width * 2, 0, width, height);
 		tree = sheet.crop(width * 0, height * 1, width, height * 2);
+		sky = sheet.crop(width * 2, height * 2, width, height);
 		
 		btn_menu = new BufferedImage[2];
 		btn_menu[0] = sheet.crop(width *6, height *4, width *2, height);

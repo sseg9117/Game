@@ -48,12 +48,6 @@ public class KeyManager implements KeyListener
 		attackLeft = keys[KeyEvent.VK_E];
 		attackRight = keys[KeyEvent.VK_E];
 	}
-	public void Jump(KeyEvent e)
-	{
-		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
-			return;
-		keys[e.getKeyCode()] = true;
-	}
 	public boolean keyJustPressed(int keyCode)
 	{
 		if(keyCode < 0 || keyCode >= keys.length)
@@ -80,7 +74,9 @@ public class KeyManager implements KeyListener
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-		
+		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
+			return;
+		keys[e.getKeyCode()] = true;
 	}
 
 }

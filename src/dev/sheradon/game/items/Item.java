@@ -5,15 +5,14 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.gfx.Assets;
 
 public class Item
 {
 	// handler
 	
 	public static Item[] items = new Item[256];
-//	public static Item ladder = new Item(Assets.ladder, "Wood" , 0);
-//	public static Item lily = new Item(Assets.lily, "Wood" , 1);
-//	public static Item stair = new Item(Assets.stair, "Wood" , 2);
+	public static Item dirtItem = new Item(Assets.dirt, "Dirt" , 0);
 	
 	//class
 	public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;

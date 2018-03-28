@@ -112,7 +112,12 @@ public class Player extends Creature
 		if(falling || jumping)
 			yMove += gravity;
 		if(handler.getKeyManager().space)
-			yMove = jump;
+			yMove = -speed -5;
+			jumping = true;
+		if(jumping || falling)
+			jumping = false;
+			
+			
 				
 	}
 	@Override
