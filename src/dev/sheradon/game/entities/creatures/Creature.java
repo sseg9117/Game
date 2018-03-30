@@ -22,6 +22,7 @@ public abstract class Creature extends Entity
 	{
 		super(handler, x, y, width, height);
 		speed = DEFAULT_SPEED;
+		jump = -speed -6;
 		gravity = speed;
 		jumping = false;
 		falling = true;
