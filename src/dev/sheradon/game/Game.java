@@ -1,5 +1,6 @@
 package dev.sheradon.game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
@@ -66,7 +67,7 @@ public class Game implements Runnable
 		gameState = new GameState(handler);
 		setMenuState(new MenuState(handler));
 		setTestState(new TestState(handler));
-		State.setState(gameState);
+		State.setState(menuState);
 	}
 
 
@@ -89,6 +90,7 @@ public class Game implements Runnable
 		}
 		Graphics g = bs.getDrawGraphics();
 		// Clear Screen
+		g.setColor(Color.BLUE);
 		g.clearRect(0, 0, width, height);
 		g.fillRect(0, 0, width, height);
 
