@@ -1,9 +1,13 @@
 package dev.sheradon.game;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import dev.sheradon.game.display.Display;
 import dev.sheradon.game.gfx.Assets;
@@ -20,6 +24,7 @@ public class Game implements Runnable
 	private int width, height;
 	public String title;
 
+	private BufferedImage image;
 	private boolean running = false;
 	private Thread thread;
 	private BufferStrategy bs;
@@ -65,6 +70,16 @@ public class Game implements Runnable
 		setMenuState(new MenuState(handler));
 		State.setState(menuState);
 	}
+    public void ImagePanel() 
+    {
+        try
+		{
+			image = ImageIO.read(new File("res/textures/Menu.png"));
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+     } 
 
 	private void tick()
 	{
@@ -86,7 +101,7 @@ public class Game implements Runnable
 		Graphics g = bs.getDrawGraphics();
 		Graphics2D g2d = (Graphics2D) g;
 		// Clear Screen
-		
+		g2d.drawImage(image, 0, 0, this);
 		g2d.clearRect(0, 0, width, height);
 		g2d.fillRect(0, 0, width, height);
 

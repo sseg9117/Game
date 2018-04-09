@@ -2,12 +2,7 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.gfx.Assets;
@@ -17,7 +12,7 @@ import dev.sheradon.game.ui.UIManager;
 
 public class MenuState extends State implements ImageObserver
 {
-	private BufferedImage image;
+
 	private UIManager uiManager;
 	private boolean running = false;
 	private Thread thread;
@@ -37,16 +32,6 @@ public class MenuState extends State implements ImageObserver
 			}}));
 	}
 
-    public void ImagePanel() 
-    {
-        try
-		{
-			image = ImageIO.read(new File("res/textures/Menu.png"));
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-     } 
 
 	@Override
 	public void tick()
@@ -58,7 +43,6 @@ public class MenuState extends State implements ImageObserver
 	public void render(Graphics2D g2d)
 	{
 		uiManager.render(g2d);
-		g2d.drawImage(image, 0, 0, this);
 	}
 
 	public boolean isRunning()
