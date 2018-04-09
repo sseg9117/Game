@@ -83,11 +83,10 @@ public class Game implements Runnable
 			return;
 
 		}
-
 		Graphics g = bs.getDrawGraphics();
 		Graphics2D g2d = (Graphics2D) g;
 		// Clear Screen
-		g2d.setColor(Color.YELLOW);
+		
 		g2d.clearRect(0, 0, width, height);
 		g2d.fillRect(0, 0, width, height);
 
