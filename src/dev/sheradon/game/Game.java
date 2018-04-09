@@ -3,11 +3,6 @@ package dev.sheradon.game;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import dev.sheradon.game.display.Display;
 import dev.sheradon.game.gfx.Assets;
@@ -17,6 +12,7 @@ import dev.sheradon.game.input.MouseManager;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
 import dev.sheradon.game.state.State;
+import dev.sheradon.game.state.TestState;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public class Game implements Runnable
 {
@@ -24,7 +20,7 @@ public class Game implements Runnable
 	private int width, height;
 	public String title;
 
-	private BufferedImage image;
+//	private BufferedImage image;
 	private boolean running = false;
 	private Thread thread;
 	private BufferStrategy bs;
@@ -33,6 +29,7 @@ public class Game implements Runnable
 	// States i will be adding more as i write more code
 	public State gameState;
 	public State menuState;
+	public State testState;
 	// Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
@@ -68,8 +65,10 @@ public class Game implements Runnable
 		
 		gameState = new GameState(handler);
 		setMenuState(new MenuState(handler));
-		State.setState(menuState);
+		setTestState(new TestState(handler));
+		State.setState(gameState);
 	}
+
 
 	private void tick()
 	{
@@ -89,14 +88,13 @@ public class Game implements Runnable
 
 		}
 		Graphics g = bs.getDrawGraphics();
-		Graphics2D g2d = (Graphics2D) g;
 		// Clear Screen
-		g2d.clearRect(0, 0, width, height);
-		g2d.fillRect(0, 0, width, height);
+		g.clearRect(0, 0, width, height);
+		g.fillRect(0, 0, width, height);
 
 		// Draw here
 		if (State.getState() != null)
-			State.getState().render(g2d);
+			State.getState().render(g);
 
 		// End Drawing
 		bs.show();
@@ -194,7 +192,16 @@ public class Game implements Runnable
 	{
 		this.menuState = menuState;
 	}
-
+	
+	public State getTestState()
+	{
+		return testState;
+	}
+	
+	public void setTestState(State testState)
+	{
+		this.testState = testState;
+	}
 	public Graphics2D getG2d()
 	{
 		return g2d;

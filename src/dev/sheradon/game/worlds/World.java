@@ -1,6 +1,6 @@
 package dev.sheradon.game.worlds;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.entities.EntityManager;
@@ -47,7 +47,7 @@ public class World
 		entityManager.tick();
 	}
 
-	public void render(Graphics2D g)
+	public void render(Graphics g)
 	{
 		int xStart = (int) Math.max(0, handler.getGameCamera().getXoffset() / Tile.TILEWIDTH);
 		int xEnd = (int) Math.min(width, (handler.getGameCamera().getXoffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);

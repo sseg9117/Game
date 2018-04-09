@@ -1,6 +1,6 @@
 package dev.sheradon.game.entities;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import dev.sheradon.game.Handler;
@@ -32,7 +32,7 @@ public abstract class Entity
 	}
 	public abstract void tick();
 
-	public abstract void render(Graphics2D g);
+	public abstract void render(Graphics g);
 	
 	public abstract void die();
 	

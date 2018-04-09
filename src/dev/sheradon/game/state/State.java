@@ -1,6 +1,6 @@
 package dev.sheradon.game.state;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 import dev.sheradon.game.Handler;
 
@@ -29,5 +29,5 @@ public abstract class State
 
 	public abstract void tick();
 
-	public abstract void render(Graphics2D g);
+	public abstract void render(Graphics g);
 }

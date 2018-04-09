@@ -1,9 +1,7 @@
 package dev.sheradon.game.state;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
@@ -34,7 +32,26 @@ public class MenuState extends State
 		}
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
+		//Buttons
+		uiManager.addObject(new UIImageButton(352, 200, 256, 128, Assets.btn_menu, new ClickListener() 
+ 		{
+ 			@Override
+ 			public void onCick()
+ 			{
+ 				handler.getMouseManager().setUIManager(null);
+ 				State.setState(handler.getGame().gameState);
+ 			}}));
+		
+		uiManager.addObject(new UIImageButton(500, 500, 256, 128, Assets.btn_menu, new ClickListener() 
+ 		{
+ 			@Override
+ 			public void onCick()
+ 			{
+ 				handler.getMouseManager().setUIManager(null);
+ 				State.setState(handler.getGame().testState);
+ 			}}));
 	}
+		
 	@Override
 	public void tick()
 	{
@@ -42,10 +59,10 @@ public class MenuState extends State
 	}
 
 	@Override
-	public void render(Graphics2D g2d)
+	public void render(Graphics g)
 	{
-		g2d.drawImage(menu, 0, 0, null);
-		uiManager.render(g2d);
+		g.drawImage(menu, 0, 0, null);
+		uiManager.render(g);
 	}
 
 	public boolean isRunning()

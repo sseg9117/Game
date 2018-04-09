@@ -1,6 +1,6 @@
 package dev.sheradon.game.entities.creatures;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
@@ -117,7 +117,7 @@ public class Player extends Creature
 				
 	}
 	@Override
-	public void render(Graphics2D g)
+	public void render(Graphics g)
 	{
 		g.drawImage(getCurrentAnimationFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
 		inventory.render(g);

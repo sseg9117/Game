@@ -1,6 +1,6 @@
 package dev.sheradon.game.entities.statics;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.gfx.Assets;
@@ -31,7 +31,7 @@ public class Tree extends StaticEntity
 		handler.getWorld().getItemManager().addItem(Item.woodItem.createNew((int) x,(int)  y));
 	}
 	@Override
-	public void render(Graphics2D g)
+	public void render(Graphics g)
 	{
 		g.drawImage(Assets.tree,
 				(int) (x - handler.getGameCamera().getXoffset()),

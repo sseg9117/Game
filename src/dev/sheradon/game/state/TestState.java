@@ -1,6 +1,6 @@
 package dev.sheradon.game.state;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class TestState extends State
 	}
 
 	@Override
-	public void render(Graphics2D g)
+	public void render(Graphics g)
 	{
 		g.drawImage(test, 0, 0, null);
 		uiManager.render(g);
