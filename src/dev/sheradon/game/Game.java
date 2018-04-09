@@ -70,16 +70,6 @@ public class Game implements Runnable
 		setMenuState(new MenuState(handler));
 		State.setState(menuState);
 	}
-    public void ImagePanel() 
-    {
-        try
-		{
-			image = ImageIO.read(new File("res/textures/Menu.png"));
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-     } 
 
 	private void tick()
 	{
@@ -101,7 +91,6 @@ public class Game implements Runnable
 		Graphics g = bs.getDrawGraphics();
 		Graphics2D g2d = (Graphics2D) g;
 		// Clear Screen
-		g2d.drawImage(image, 0, 0, this);
 		g2d.clearRect(0, 0, width, height);
 		g2d.fillRect(0, 0, width, height);
 
