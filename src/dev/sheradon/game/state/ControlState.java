@@ -10,19 +10,19 @@ import javax.imageio.ImageIO;
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.ui.UIManager;
 
-public class TestState extends State
+public class ControlState extends State
 {
 	private BufferedImage test;
 	private UIManager uiManager;
 	private boolean running = false;
 	private Thread thread;
 	
-	public TestState(Handler handler)
+	public ControlState(Handler handler)
 	{
 		super(handler);
 		try
 		{
-			test = ImageIO.read(new File("res/textures/sheet.png"));
+			test = ImageIO.read(new File("res/textures/Controls.png"));
 		} 
 		catch (IOException e)
 		{

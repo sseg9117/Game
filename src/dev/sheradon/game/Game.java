@@ -10,10 +10,11 @@ import dev.sheradon.game.gfx.Assets;
 import dev.sheradon.game.gfx.GameCamera;
 import dev.sheradon.game.input.KeyManager;
 import dev.sheradon.game.input.MouseManager;
+import dev.sheradon.game.state.ControlState;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
 import dev.sheradon.game.state.State;
-import dev.sheradon.game.state.TestState;
+import dev.sheradon.game.state.OptionState;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public class Game implements Runnable
 {
@@ -30,7 +31,8 @@ public class Game implements Runnable
 	// States i will be adding more as i write more code
 	public State gameState;
 	public State menuState;
-	public State testState;
+	public State optionState;
+	public State controlState;
 	// Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
@@ -65,9 +67,10 @@ public class Game implements Runnable
 
 		
 		gameState = new GameState(handler);
+		setControlState(new ControlState(handler));
 		setMenuState(new MenuState(handler));
-		setTestState(new TestState(handler));
-		State.setState(gameState);
+		setOptionState(new OptionState(handler));
+		State.setState(menuState);
 	}
 
 
@@ -185,6 +188,15 @@ public class Game implements Runnable
 		}
 	}
 
+	public State getControlState()
+	{
+		return controlState;
+	}
+	
+	public void setControlState(State controlState)
+	{
+		this.controlState = controlState;
+	}
 	public State getMenuState()
 	{
 		return menuState;
@@ -195,14 +207,14 @@ public class Game implements Runnable
 		this.menuState = menuState;
 	}
 	
-	public State getTestState()
+	public State getOptionState()
 	{
-		return testState;
+		return optionState;
 	}
 	
-	public void setTestState(State testState)
+	public void setOptionState(State optionState)
 	{
-		this.testState = testState;
+		this.optionState = optionState;
 	}
 	public Graphics2D getG2d()
 	{
