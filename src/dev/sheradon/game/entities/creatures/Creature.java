@@ -7,9 +7,9 @@ import dev.sheradon.game.tile.Tile;
 public abstract class Creature extends Entity
 {
 
-	public static final float DEFAULT_SPEED = 5.0f;
+	public static final float DEFAULT_SPEED = 3.5f;
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
-			DEFAULT_CREATURE_HEIGHT = 57;
+			DEFAULT_CREATURE_HEIGHT = 64;
 	protected float gravity;
 	protected float jump;
     protected boolean falling;
@@ -22,7 +22,7 @@ public abstract class Creature extends Entity
 	{
 		super(handler, x, y, width, height);
 		speed = DEFAULT_SPEED;
-		jump = -speed -6;
+		jump = -speed -8;
 		gravity = speed;
 		jumping = false;
 		falling = true;
