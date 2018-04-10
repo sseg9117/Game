@@ -13,8 +13,8 @@ import dev.sheradon.game.input.MouseManager;
 import dev.sheradon.game.state.ControlState;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
-import dev.sheradon.game.state.State;
 import dev.sheradon.game.state.OptionState;
+import dev.sheradon.game.state.State;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
 public class Game implements Runnable
 {
@@ -70,7 +70,7 @@ public class Game implements Runnable
 		setControlState(new ControlState(handler));
 		setMenuState(new MenuState(handler));
 		setOptionState(new OptionState(handler));
-		State.setState(menuState);
+		State.setState(gameState);
 	}
 
 

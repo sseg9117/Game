@@ -9,20 +9,20 @@ import dev.sheradon.game.gfx.Animation;
 import dev.sheradon.game.gfx.Assets;
 import dev.sheradon.game.inventory.Inventory;
 //USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
-public class Player extends Creature
+public class Player2 extends Creature
 {
 	//Animations
-	private Animation animleft;
-	private Animation animright;
-	private Animation animup;
-	private Animation animdown;
-	private Animation animstill;
-	private Animation animjump;
-	private Inventory inventory;
+	private Animation animleft2;
+	private Animation animright2;
+	private Animation animup2;
+	private Animation animdown2;
+	private Animation animstill2;
+	private Animation animjump2;
+	private Inventory inventory2;
 	
 
 	
-	public Player(Handler handler,float x, float y)
+	public Player2(Handler handler,float x, float y)
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
@@ -32,31 +32,31 @@ public class Player extends Creature
 		bounds.height = 42;
 		
 		//Animations
-		animleft = new Animation(500, Assets.player_left);
-		animright = new Animation(500, Assets.player_right);
-		animup = new Animation(500, Assets.player_up);
-		animdown = new Animation(500, Assets.player_down);
-		animstill = new Animation(500, Assets.player_still);
-		animjump = new Animation(500, Assets.player_jump);
+		animleft2 = new Animation(500, Assets.player2_left);
+		animright2 = new Animation(500, Assets.player2_right);
+		animup2 = new Animation(500, Assets.player2_up);
+		animdown2 = new Animation(500, Assets.player2_down);
+		animstill2 = new Animation(500, Assets.player2_still);
+		animjump2 = new Animation(500, Assets.player2_jump);
 		
-		inventory = new Inventory(handler);
+		inventory2 = new Inventory(handler);
 	}
 
 	@Override
 	public void tick()
 	{
 		//Animations
-		animleft.tick();
-		animright.tick();
-		animup.tick();
-		animdown.tick();
-		animstill.tick();
-		animjump.tick();
+		animleft2.tick();
+		animright2.tick();
+		animup2.tick();
+		animdown2.tick();
+		animstill2.tick();
+		animjump2.tick();
 		//Movement
 		move();
 		getInput();
 		handler.getGameCamera().centerOnEntity(this);
-		inventory.tick();
+		inventory2.tick();
 	
 		//Attack method if i need it
 		checkAttacks();
@@ -121,7 +121,7 @@ public class Player extends Creature
 	public void render(Graphics g)
 	{
 		g.drawImage(getCurrentAnimationFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
-		inventory.render(g);
+		inventory2.render(g);
 //		
 //		g.setColor(Color.RED);
 //		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
@@ -139,40 +139,40 @@ public class Player extends Creature
 	{
 		if(xMove < 0)
 		{
-			return animleft.getCurrentFrame();
+			return animleft2.getCurrentFrame();
 		}
 		else if(xMove > 0)
 		{
-			return animright.getCurrentFrame();
+			return animright2.getCurrentFrame();
 		}
 		else if(yMove < 0)
 		{
-			return animup.getCurrentFrame();
+			return animup2.getCurrentFrame();
 		}
 		else if(yMove > 0)
 		{
-			return animdown.getCurrentFrame();
+			return animdown2.getCurrentFrame();
 		}
 		else if(yMove < 0)
 		{
-			return animjump.getCurrentFrame();
+			return animjump2.getCurrentFrame();
 		}
 		else
 		{
-			return animstill.getCurrentFrame();
+			return animstill2.getCurrentFrame();
 		}
 
 	
 	}
 
-	public Inventory getInventory()
+	public Inventory getInventory2()
 	{
-		return inventory;
+		return inventory2;
 	}
 
-	public void setInventory(Inventory inventory)
+	public void setInventory(Inventory inventory2)
 	{
-		this.inventory = inventory;
+		this.inventory2 = inventory2;
 	}
 
 }
