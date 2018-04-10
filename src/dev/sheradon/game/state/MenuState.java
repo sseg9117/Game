@@ -34,6 +34,7 @@ public class MenuState extends State
 		handler.getMouseManager().setUIManager(uiManager);
 		//Buttons
 		
+//		State.setState(handler.getGame().gameState);
 	}
 		
 	@Override
