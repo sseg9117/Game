@@ -32,12 +32,12 @@ public class Player extends Creature
 		bounds.height = 42;
 		
 		//Animations
-		animleft = new Animation(500, Assets.player_left);
-		animright = new Animation(500, Assets.player_right);
-		animup = new Animation(500, Assets.player_up);
-		animdown = new Animation(500, Assets.player_down);
+		animleft = new Animation(100, Assets.player_left);
+		animright = new Animation(100, Assets.player_right);
+		animup = new Animation(100, Assets.player_up);
+		animdown = new Animation(100, Assets.player_down);
 		animstill = new Animation(500, Assets.player_still);
-		animjump = new Animation(500, Assets.player_jump);
+		animjump = new Animation(100, Assets.player_jump);
 		
 		inventory = new Inventory(handler);
 	}
