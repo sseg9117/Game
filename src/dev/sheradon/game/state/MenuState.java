@@ -8,6 +8,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.gfx.Assets;
+import dev.sheradon.game.ui.ClickListener;
+import dev.sheradon.game.ui.UIImageButton;
 import dev.sheradon.game.ui.UIManager;
 
 public class MenuState extends State
@@ -30,6 +33,7 @@ public class MenuState extends State
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
 		//Buttons
+		
 	}
 		
 	@Override

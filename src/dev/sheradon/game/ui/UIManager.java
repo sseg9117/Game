@@ -1,6 +1,7 @@
 package dev.sheradon.game.ui;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
@@ -70,6 +71,11 @@ public class UIManager
 	public void removeObject(UIObject o)
 	{
 		objects.remove(o);
+	}
+
+	public void add(Rectangle rectangle)
+	{
+		
 	}
 	
 }
