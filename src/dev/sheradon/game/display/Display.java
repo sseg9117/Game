@@ -22,7 +22,6 @@ public class Display
 		this.height = height;
 
 		createDisplay();
-		createMenu();
 	}
 
 	private void createDisplay()
@@ -43,20 +42,6 @@ public class Display
 		frame.add(canvas);
 		frame.pack();		
 	}
-	
-	private void createMenu()
-	{
-		
-		menuScreen = new Canvas();
-		menuScreen.setPreferredSize(new Dimension(width, height));
-		menuScreen.setMaximumSize(new Dimension(width, height));
-		menuScreen.setMinimumSize(new Dimension(width, height));
-		menuScreen.setFocusable(false);
-		
-		frame.add(menuScreen);
-		frame.pack();
-	}
-
 	
 	public JFrame getFrame()
 	{

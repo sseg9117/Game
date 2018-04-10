@@ -1,6 +1,5 @@
 package dev.sheradon.game;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
@@ -14,8 +13,9 @@ import dev.sheradon.game.state.ControlState;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
 import dev.sheradon.game.state.OptionState;
+import dev.sheradon.game.state.SelectState;
 import dev.sheradon.game.state.State;
-//USED  CodeNMore YoutubeChannle as a refernce for the code in here he has a youtube tutorial video 
+//USED  CodeNMore YoutubeChannle as a refernce 
 public class Game implements Runnable
 {
 	private Display display;
@@ -33,6 +33,7 @@ public class Game implements Runnable
 	public State menuState;
 	public State optionState;
 	public State controlState;
+	public State selectState;
 	// Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
@@ -70,6 +71,7 @@ public class Game implements Runnable
 		setControlState(new ControlState(handler));
 		setMenuState(new MenuState(handler));
 		setOptionState(new OptionState(handler));
+		setSelectState(new SelectState(handler));
 		State.setState(gameState);
 	}
 
@@ -93,7 +95,6 @@ public class Game implements Runnable
 		}
 		Graphics g = bs.getDrawGraphics();
 		// Clear Screen
-		g.setColor(Color.BLUE);
 		g.clearRect(0, 0, width, height);
 		g.fillRect(0, 0, width, height);
 
@@ -187,7 +188,16 @@ public class Game implements Runnable
 			e.printStackTrace();
 		}
 	}
-
+	public State getSelectState()
+	{
+		return selectState;
+	}
+	
+	public void setSelectState(State selectState)
+	{
+		this.selectState = selectState;
+	}
+	
 	public State getControlState()
 	{
 		return controlState;
