@@ -30,8 +30,8 @@ public class MenuState extends State
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
 		//Buttons
-		
-//		State.setState(handler.getGame().gameState);
+		//when mouse clicked in certain area of screen where it says start it switches to
+		//State.setState(handler.getGame().gameState);
 	}
 		
 	@Override
