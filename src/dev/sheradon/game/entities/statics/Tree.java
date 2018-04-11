@@ -3,7 +3,6 @@ package dev.sheradon.game.entities.statics;
 import java.awt.Graphics;
 
 import dev.sheradon.game.Handler;
-import dev.sheradon.game.gfx.Assets;
 import dev.sheradon.game.items.Item;
 import dev.sheradon.game.tile.Tile;
 //Might have used something fron stackoverflow but dont remember
@@ -33,10 +32,10 @@ public class Tree extends StaticEntity
 	@Override
 	public void render(Graphics g)
 	{
-		g.drawImage(Assets.tree,
-				(int) (x - handler.getGameCamera().getXoffset()),
-				(int) (y - handler.getGameCamera().getYoffset()), width, height,
-				null);
+//		g.drawImage(Assets.tree,
+//				(int) (x - handler.getGameCamera().getXoffset()),
+//				(int) (y - handler.getGameCamera().getYoffset()), width, height,
+//				null);
 
 	}
 

@@ -7,11 +7,13 @@ import java.util.Iterator;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.entities.creatures.Player;
+import dev.sheradon.game.entities.creatures.Player2;
 
 public class EntityManager
 {
 	private Handler handler;
 	private Player player;
+	private Player2 player2;
 	private ArrayList<Entity> entities;
 	private Comparator<Entity> renderSorter = new Comparator<Entity>()
 	{
@@ -26,8 +28,9 @@ public class EntityManager
 
 	};
 
-	public EntityManager(Handler handler, Player player)
+	public EntityManager(Handler handler, Player player, Player2 player2)
 	{
+		this.player2 = player2;
 		this.handler = handler;
 		this.player = player;
 		entities = new ArrayList<Entity>();
@@ -78,6 +81,16 @@ public class EntityManager
 	public void setPlayer(Player player)
 	{
 		this.player = player;
+	}
+
+	public Player2 getPlayer2()
+	{
+		return player2;
+	}
+
+	public void setPlayer2(Player2 player2)
+	{
+		this.player2 = player2;
 	}
 
 	public ArrayList<Entity> getEntities()

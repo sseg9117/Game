@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.entities.Entity;
 import dev.sheradon.game.gfx.Animation;
 import dev.sheradon.game.gfx.Assets;
 import dev.sheradon.game.inventory.Inventory;
@@ -85,7 +86,7 @@ public class Player2 extends Creature
 			return;
 		}
 		
-		for(dev.sheradon.game.entities.Entity e : handler.getWorld().getEntityManager().getEntities())
+		for(Entity e : handler.getWorld().getEntityManager().getEntities())
 			{	
 				if(e.equals(this))
 					continue;

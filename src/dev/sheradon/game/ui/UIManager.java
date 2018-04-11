@@ -77,5 +77,10 @@ public class UIManager
 	{
 		
 	}
+
+	public void addObject(Rectangle rectangle)
+	{
+		
+	}
 	
 }

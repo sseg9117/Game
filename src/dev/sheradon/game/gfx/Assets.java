@@ -8,7 +8,9 @@ public class Assets
 
 	public static BufferedImage dirt, sky, grass, stone, tree, wood, lava, leaves, chest;
 	public static BufferedImage[] player_right, player_left, player_up,
-			player_down, player_still, player_jump, player2_right, player2_left, player2_up,
+			player_down, player_still, player_jump;
+	
+	public static BufferedImage[] player2_right, player2_left, player2_up,
 			player2_down, player2_still, player2_jump;
 	
 	public static BufferedImage[] btn_start, btn_menu;
@@ -56,7 +58,7 @@ public class Assets
 		player2_down[0] = sheet.crop(width * 3, height *4, width, height);
 		
 		player_down = new BufferedImage[1];
-		player_down[0] = sheet.crop(width * 4, height *4, width, height);
+		player_down[0] = sheet.crop(width * 4, height *3, width, height);
 		
 		player2_right = new BufferedImage[3];
 		player2_right[0] = sheet.crop(width * 3, height *4, width, height);
