@@ -2,11 +2,11 @@ package dev.sheradon.game.ui;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-//Googled how to use buttons on ui and got a little help from stackoverflow
+
 public class UIImageButton extends UIObject
 {
 	private BufferedImage [] images;
-	private ClickListener clicker;
+ 	private ClickListener clicker;
 
 	public UIImageButton(float x, float y, int width, int height, BufferedImage [] images, ClickListener clicker)
 	{
@@ -23,8 +23,7 @@ public class UIImageButton extends UIObject
 	@Override
 	public void render(Graphics g)
 	{
-		if(hovering)
-			g.drawImage(images[1], (int) x, (int) y, width, height, null); 
+
 	}
 
 	@Override

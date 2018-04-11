@@ -1,13 +1,20 @@
 package dev.sheradon.game.state;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.gfx.Assets;
+import dev.sheradon.game.ui.ClickListener;
+import dev.sheradon.game.ui.UIImageButton;
 import dev.sheradon.game.ui.UIManager;
 
 public class MenuState extends State
@@ -16,24 +23,25 @@ public class MenuState extends State
 	private UIManager uiManager;
 	private boolean running = false;
 	private Thread thread;
+	ArrayList<Shape> shapes = new ArrayList<Shape>();
 	public MenuState(Handler handler)
 	{
 		super(handler);
 		try
 		{
 			menu = ImageIO.read(new File("res/textures/Menu.png"));
-		} 
-		catch (IOException e)
+		} catch (IOException e)
 		{
 			e.printStackTrace();
 		}
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
-		//Buttons
-		//when mouse clicked in certain area of screen where it says start it switches to
-		//State.setState(handler.getGame().gameState);
+		// Buttons
+		// State.setState(handler.getGame().gameState);
+		uiManager.add(new Rectangle(5, 5, 700, 700));
 	}
-		
+
+
 	@Override
 	public void tick()
 	{
