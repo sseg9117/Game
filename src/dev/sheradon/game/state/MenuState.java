@@ -33,10 +33,10 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
 		// Buttons
-		// if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
-		// {
-		// State.setState(handler.getGame().gameState);
-		// }
+//		 if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
+//		 {
+//		 State.setState(handler.getGame().gameState);
+//		 }
 	}
 
 	@Override
@@ -90,6 +90,12 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
-
+		int x = e.getX();
+		int y = e.getY();
+		System.out.println(x);
+		 if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
+		 {
+		 State.setState(handler.getGame().gameState);
+		 }
 	}
 }

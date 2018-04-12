@@ -62,6 +62,18 @@ public class Handler
 
 	public void setUIManager(UIManager uiManager)
 	{
+		this.setUiManager(uiManager);
+	}
+
+
+	public UIManager getUiManager()
+	{
+		return uiManager;
+	}
+
+
+	public void setUiManager(UIManager uiManager)
+	{
 		this.uiManager = uiManager;
 	}
 
