@@ -1,10 +1,11 @@
 package dev.sheradon.game.input;
 
-import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import dev.sheradon.game.Handler;
+import dev.sheradon.game.state.State;
 import dev.sheradon.game.ui.UIManager;
 
 public class MouseManager implements MouseListener, MouseMotionListener
@@ -64,13 +65,15 @@ public class MouseManager implements MouseListener, MouseMotionListener
 		
 	}
 
-	@Override
 	public void mousePressed(MouseEvent e)
 	{
+		int x = e.getX();
+		int y = e.getY();
 		if(e.getButton() == MouseEvent.BUTTON1)
 			leftPressed = true;
 		else if(e.getButton() == MouseEvent.BUTTON3)
 			rightPressed = true;
+		
 	}
 
 	@Override
@@ -86,18 +89,15 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e)
+	public void mouseEntered(MouseEvent e)
 	{
-
+		
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e)
+	public void mouseExited(MouseEvent e)
 	{
-		if(e.getButton() == MouseEvent.BUTTON1)
-			leftPressed = true;
-		else if(e.getButton() == MouseEvent.BUTTON3)
-			rightPressed = true;
+		
 	}
 
 }

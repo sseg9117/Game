@@ -1,16 +1,21 @@
 package dev.sheradon.game.state;
 
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.ui.UIManager;
 
-public abstract class State implements MouseListener, MouseMotionListener
+public abstract class State
 {
-	private boolean isLeftPressed = false;
-	private boolean isRightPressed = false;
+	private boolean leftPressed, rightPressed;
+	private UIManager uiManager;
+
+	public void setUIManager(UIManager uiManager)
+	{
+		this.setUiManager(uiManager);
+	}
 	
 	private static State currentState = null;
 
@@ -33,34 +38,37 @@ public abstract class State implements MouseListener, MouseMotionListener
 		this.handler = handler;
 	}
 	
-	public void mousePressed(MouseEvent e)
-	{
-		if(e.getButton() == MouseEvent.BUTTON1)
-			isLeftPressed = true;
-		else if(e.getButton() == MouseEvent.BUTTON3)
-			isRightPressed = true;
-	}
 	public abstract void tick();
 
 	public abstract void render(Graphics g);
 
+
 	public boolean isLeftPressed()
 	{
-		return isLeftPressed;
+		return leftPressed;
 	}
-
-	public void setLeftPressed(boolean isLeftPressed)
-	{
-		this.isLeftPressed = isLeftPressed;
-	}
-
 	public boolean isRightPressed()
 	{
-		return isRightPressed;
+		return rightPressed;
 	}
 
-	public void setRightPressed(boolean isRightPressed)
+	public void setLeftPressed(boolean leftPressed)
 	{
-		this.isRightPressed = isRightPressed;
+		this.leftPressed = leftPressed;
+	}
+
+	public void setRightPressed(boolean rightPressed)
+	{
+		this.rightPressed = rightPressed;
+	}
+
+	public UIManager getUiManager()
+	{
+		return uiManager;
+	}
+
+	public void setUiManager(UIManager uiManager)
+	{
+		this.uiManager = uiManager;
 	}
 }

@@ -2,11 +2,13 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.worlds.World;
 
-public class GameState extends State
+public class GameState extends State implements MouseListener, MouseMotionListener
 {
 	private World world;
 	public GameState(Handler handler)
@@ -65,6 +67,13 @@ public class GameState extends State
 
 	@Override
 	public void mouseMoved(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e)
 	{
 		// TODO Auto-generated method stub
 		

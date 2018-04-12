@@ -72,12 +72,6 @@ public class UIManager
 	{
 		objects.remove(o);
 	}
-
-	public void add(Rectangle rectangle)
-	{
-		
-	}
-
 	public void addObject(Rectangle rectangle)
 	{
 		

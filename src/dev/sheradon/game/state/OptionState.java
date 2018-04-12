@@ -2,6 +2,8 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +13,7 @@ import javax.imageio.ImageIO;
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.ui.UIManager;
 
-public class OptionState extends State
+public class OptionState extends State implements MouseListener, MouseMotionListener
 {
 	private BufferedImage test;
 	private UIManager uiManager;
@@ -116,6 +118,13 @@ public class OptionState extends State
 
 	@Override
 	public void mouseMoved(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e)
 	{
 		// TODO Auto-generated method stub
 		

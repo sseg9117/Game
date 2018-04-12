@@ -3,12 +3,14 @@ package dev.sheradon.game;
 import dev.sheradon.game.gfx.GameCamera;
 import dev.sheradon.game.input.KeyManager;
 import dev.sheradon.game.input.MouseManager;
+import dev.sheradon.game.ui.UIManager;
 import dev.sheradon.game.worlds.World;
 
 public class Handler
 {
 	private Game game;
 	private World world;
+	private UIManager uiManager;
 
 	public Handler(Game game)
 	{
@@ -55,6 +57,12 @@ public class Handler
 	public World getWorld()
 	{
 		return world;
+	}
+
+
+	public void setUIManager(UIManager uiManager)
+	{
+		this.uiManager = uiManager;
 	}
 
 }

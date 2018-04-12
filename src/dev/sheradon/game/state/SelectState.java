@@ -2,6 +2,8 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +13,7 @@ import javax.imageio.ImageIO;
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.ui.UIManager;
 
-public class SelectState extends State
+public class SelectState extends State implements MouseListener, MouseMotionListener
 {
 	private BufferedImage test;
 	private UIManager uiManager;
@@ -118,6 +120,19 @@ public class SelectState extends State
 	public void mouseMoved(MouseEvent e)
 	{
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e)
+	{
+//		int x = e.getX();
+//		int y = e.getY();
+//		System.out.println(x);
+//		if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) ) 
+//		{
+//			State.setState(handler.getGame().gameState);
+//		}	
 		
 	}
 
