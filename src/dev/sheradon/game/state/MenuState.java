@@ -31,7 +31,7 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 			e.printStackTrace();
 		}
 		uiManager = new UIManager(handler);
-		handler.getMouseManager().setUIManager(uiManager);
+//		handler.getMouseManager().setUIManager(uiManager);
 		// Buttons
 //		 if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
 //		 {
