@@ -2,10 +2,12 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import dev.sheradon.game.Handler;
 
-public abstract class State
+public abstract class State implements MouseListener, MouseMotionListener
 {
 	private boolean isLeftPressed = false;
 	private boolean isRightPressed = false;

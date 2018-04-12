@@ -2,6 +2,7 @@ package dev.sheradon.game.state;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,19 +10,15 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import dev.sheradon.game.Handler;
-import dev.sheradon.game.gfx.Assets;
-import dev.sheradon.game.ui.ClickListener;
-import dev.sheradon.game.ui.UIImageButton;
 import dev.sheradon.game.ui.UIManager;
-import dev.sheradon.game.ui.UIObject;
 
 public class MenuState extends State
 {
 	private BufferedImage menu;
 	private UIManager uiManager;
-	protected Rectangle start;
 	private boolean running = false;
 	private Thread thread;
+	Rectangle start = new Rectangle(300, 500, 100, 64);
 	
 	public MenuState(Handler handler)
 	{
@@ -37,7 +34,6 @@ public class MenuState extends State
 		handler.getMouseManager().setUIManager(uiManager);
 		// Buttons
 		// State.setState(handler.getGame().gameState);
-//		Rectangle start = new Rectangle(300, 500, 230, 100);
 //		
 //		if(handler.getMouseManager().isLeftPressed())
 //		{
@@ -55,7 +51,14 @@ public class MenuState extends State
 //				 State.setState(handler.getGame().gameState);
 //			}}));
 	}	
-
+	public boolean contains(int x, int y) 
+	{
+	    return start.contains(x, y);
+	}
+	public void changeState()
+	{
+		State.setState(handler.getGame().gameState);
+	}
 	@Override
 	public void tick()
 	{
@@ -87,5 +90,45 @@ public class MenuState extends State
 	public void setThread(Thread thread)
 	{
 		this.thread = thread;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e)
+	{
+		if ((e.getButton() == 1) && start.contains(e.getX(), e.getY()) ) 
+		{
+		      changeState();
+		}
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e)
+	{
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e)
+	{
+
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e)
+	{
+		
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e)
+	{
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e)
+	{
+		
 	}
 }
