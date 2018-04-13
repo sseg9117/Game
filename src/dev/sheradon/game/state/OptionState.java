@@ -32,7 +32,7 @@ public class OptionState extends State implements MouseListener, MouseMotionList
 			e.printStackTrace();
 		}
 		uiManager = new UIManager(handler);
-		handler.getMouseManager().setUIManager(uiManager);
+		handler.getMouseManager().setUIManager(handler, uiManager);
 	}
 
 	@Override

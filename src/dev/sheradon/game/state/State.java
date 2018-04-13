@@ -71,4 +71,9 @@ public abstract class State
 	{
 		this.uiManager = uiManager;
 	}
+
+	public void onClick()
+	{
+		
+	}
 }
