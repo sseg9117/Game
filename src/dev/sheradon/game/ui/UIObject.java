@@ -40,6 +40,7 @@ public abstract class UIObject
 		if(hovering)
 			onClick();
 	}
+	
 	//getters and setters
 	public float getX()
 	{
@@ -89,7 +90,6 @@ public abstract class UIObject
 	{
 		this.height = height;
 	}
-
 
 
 }

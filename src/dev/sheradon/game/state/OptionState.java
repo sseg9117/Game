@@ -8,6 +8,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.gfx.Assets;
+import dev.sheradon.game.ui.ClickListener;
+import dev.sheradon.game.ui.UIImageButton;
 import dev.sheradon.game.ui.UIManager;
 
 public class OptionState extends State
@@ -20,6 +23,16 @@ public class OptionState extends State
 	public OptionState(Handler handler)
 	{
 		super(handler);
+		uiManager = new UIManager(handler);
+		handler.getMouseManager().setUIManager(uiManager);
+		uiManager.addObject(new UIImageButton(873, 620, 112, 52, Assets.btn_menu, new ClickListener() 
+		{
+			@Override
+			public void onCick()
+			{
+				handler.getMouseManager().setUIManager(null);
+				State.setState(handler.getGame().menuState);
+		}   }));
 		try
 		{
 			test = ImageIO.read(new File("res/textures/Options.png"));

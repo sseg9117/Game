@@ -8,6 +8,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.gfx.Assets;
+import dev.sheradon.game.ui.ClickListener;
+import dev.sheradon.game.ui.UIImageButton;
 import dev.sheradon.game.ui.UIManager;
 
 public class MenuState extends State
@@ -20,6 +23,41 @@ public class MenuState extends State
 	public MenuState(Handler handler)
 	{
 		super(handler);
+		uiManager = new UIManager(handler);
+		handler.getMouseManager().setUIManager(uiManager);
+		uiManager.addObject(new UIImageButton(370, 250, 256, 95, Assets.btn_menu, new ClickListener() 
+		{
+			@Override
+			public void onCick()
+			{
+				handler.getMouseManager().setUIManager(null);
+				State.setState(handler.getGame().gameState);
+		}   }));
+		uiManager.addObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
+		{
+			@Override
+			public void onCick()
+			{
+				handler.getMouseManager().setUIManager(null);
+				State.setState(handler.getGame().optionState);
+		}   }));
+		uiManager.addObject(new UIImageButton(332, 455, 325, 95, Assets.btn_menu, new ClickListener()
+		{
+			@Override
+			public void onCick()
+			{
+				handler.getMouseManager().setUIManager(null);
+				State.setState(handler.getGame().controlState);
+		}   }));
+//		uiManager.addObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
+//		{
+//			@Override
+//			public void onCick()
+//			{
+//				handler.getMouseManager().setUIManager(null);
+////				close();
+//		}   }));
+
 		try
 		{
 			menu = ImageIO.read(new File("res/textures/Menu.png"));
@@ -27,13 +65,12 @@ public class MenuState extends State
 		{
 			e.printStackTrace();
 		}
-		uiManager = new UIManager(handler);
-	
-//	 if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
-//	 {
-//	 State.setState(handler.getGame().gameState);
-//	 }
-	}
+
+		// if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
+		// {
+		// State.setState(handler.getGame().gameState);
+		// }
+}
 	@Override
 	public void tick()
 	{
@@ -45,16 +82,6 @@ public class MenuState extends State
 	{
 		g.drawImage(menu, 0, 0, null);
 		uiManager.render(g);
-	}
-
-	public UIManager getUiManager()
-	{
-		return uiManager;
-	}
-
-	public void setUiManager(UIManager uiManager)
-	{
-		this.uiManager = uiManager;
 	}
 
 	public boolean isRunning()
