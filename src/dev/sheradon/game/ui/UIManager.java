@@ -62,7 +62,11 @@ public class UIManager
 		for(UIObject o : objects)
 			o.onMouseRelease(e);
 	}
-	
+	public void onMousePressed(MouseEvent e)
+	{
+		for(UIObject start : objects)
+			start.onMousePressed(e);
+	}
 	public void addObject(UIObject o)
 	{
 		objects.add(o);
@@ -71,10 +75,6 @@ public class UIManager
 	public void removeObject(UIObject o)
 	{
 		objects.remove(o);
-	}
-	public void addObject(Rectangle rectangle)
-	{
-		
 	}
 	
 }

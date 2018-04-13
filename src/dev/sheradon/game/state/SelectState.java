@@ -32,7 +32,7 @@ public class SelectState extends State implements MouseListener, MouseMotionList
 			e.printStackTrace();
 		}
 		uiManager = new UIManager(handler);
-		handler.getMouseManager().setUIManager(handler, uiManager);
+		handler.getMouseManager().setUIManager(uiManager);
 	}
 
 	@Override

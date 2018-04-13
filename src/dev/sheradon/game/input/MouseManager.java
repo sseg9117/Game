@@ -4,7 +4,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import dev.sheradon.game.Handler;
 import dev.sheradon.game.ui.UIManager;
 
 public class MouseManager implements MouseListener, MouseMotionListener
@@ -20,7 +19,7 @@ public class MouseManager implements MouseListener, MouseMotionListener
 
 	}
 
-	public void setUIManager(Handler handler, UIManager uiManager)
+	public void setUIManager(UIManager uiManager)
 	{
 		this.uiManager = uiManager;
 	}
@@ -30,14 +29,17 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	{
 		return leftPressed;
 	}
+
 	public boolean isRightPressed()
 	{
 		return rightPressed;
 	}
+
 	public int getMouseX()
 	{
 		return mouseX;
 	}
+
 	public int getMouseY()
 	{
 		return mouseY;
@@ -65,6 +67,7 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	{
 
 	}
+
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
@@ -75,7 +78,9 @@ public class MouseManager implements MouseListener, MouseMotionListener
 //			leftPressed = true;
 //		else if (e.getButton() == MouseEvent.BUTTON3)
 //			rightPressed = true;
+
 	}
+
 
 	@Override
 	public void mouseReleased(MouseEvent e)
@@ -89,6 +94,7 @@ public class MouseManager implements MouseListener, MouseMotionListener
 			uiManager.onMouseRelease(e);
 	}
 
+
 	@Override
 	public void mouseEntered(MouseEvent e)
 	{
@@ -97,6 +103,11 @@ public class MouseManager implements MouseListener, MouseMotionListener
 
 	@Override
 	public void mouseExited(MouseEvent e)
+	{
+
+	}
+
+	public void tick()
 	{
 
 	}

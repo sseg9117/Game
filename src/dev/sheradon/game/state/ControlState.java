@@ -32,7 +32,7 @@ public class ControlState extends State implements MouseListener, MouseMotionLis
 			e.printStackTrace();
 		}
 		uiManager = new UIManager(handler);
-		handler.getMouseManager().setUIManager(handler, uiManager);
+		handler.getMouseManager().setUIManager(uiManager);
 	}
 
 	@Override

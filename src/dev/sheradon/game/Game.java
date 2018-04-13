@@ -16,6 +16,7 @@ import dev.sheradon.game.state.MenuState;
 import dev.sheradon.game.state.OptionState;
 import dev.sheradon.game.state.SelectState;
 import dev.sheradon.game.state.State;
+
 //USED  CodeNMore YoutubeChannle as a refernce 
 public class Game implements Runnable
 {
@@ -23,7 +24,7 @@ public class Game implements Runnable
 	private int width, height;
 	public String title;
 
-//	private BufferedImage image;
+	// private BufferedImage image;
 	private boolean running = false;
 	private Thread thread;
 	private BufferStrategy bs;
@@ -38,8 +39,6 @@ public class Game implements Runnable
 	// Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
-	private MouseManager state;
-
 	// Camera
 	private GameCamera gameCamera;
 	// Handler
@@ -63,6 +62,7 @@ public class Game implements Runnable
 		display.getFrame().addMouseMotionListener(mouseManager);
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
+
 		display.getCanvas().addMouseListener(menuState);
 		display.getCanvas().addMouseMotionListener(menuState);
 		Assets.init();
@@ -70,19 +70,18 @@ public class Game implements Runnable
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
 
-		
 		gameState = new GameState(handler);
 		setControlState(new ControlState(handler));
-		setMenuState(new MenuState(handler, null));
+		setMenuState(new MenuState(handler));
 		setOptionState(new OptionState(handler));
 		setSelectState(new SelectState(handler));
 		State.setState(menuState);
 	}
 
-
 	private void tick()
 	{
 		keyManager.tick();
+		mouseManager.tick();
 
 		if (State.getState() != null)
 			State.getState().tick();
@@ -121,6 +120,7 @@ public class Game implements Runnable
 		long now;
 		long lastTime = System.nanoTime();
 		long timer = 0;
+		@SuppressWarnings("unused")
 		int ticks = 0;
 
 		while (running)
@@ -138,12 +138,12 @@ public class Game implements Runnable
 				delta--;
 			}
 
-			 if (timer >= 1000000000)
-			 {
-//			 System.out.println("Ticks and Frames: " + ticks);
-			 ticks = 0;
-			 timer = 0;
-			 }
+			if (timer >= 1000000000)
+			{
+				// System.out.println("Ticks and Frames: " + ticks);
+				ticks = 0;
+				timer = 0;
+			}
 		}
 		stop();// just in case it doesn't stop
 	}
@@ -152,10 +152,12 @@ public class Game implements Runnable
 	{
 		return mouseManager;
 	}
+
 	public KeyManager getKeyManager()
 	{
 		return keyManager;
 	}
+
 	public GameCamera getGameCamera()
 	{
 		return gameCamera;
@@ -170,6 +172,7 @@ public class Game implements Runnable
 	{
 		return height;
 	}
+
 	public synchronized void start()
 	{
 		if (running)
@@ -192,25 +195,27 @@ public class Game implements Runnable
 			e.printStackTrace();
 		}
 	}
+
 	public State getSelectState()
 	{
 		return selectState;
 	}
-	
+
 	public void setSelectState(State selectState)
 	{
 		this.selectState = selectState;
 	}
-	
+
 	public State getControlState()
 	{
 		return controlState;
 	}
-	
+
 	public void setControlState(State controlState)
 	{
 		this.controlState = controlState;
 	}
+
 	public State getMenuState()
 	{
 		return menuState;
@@ -220,16 +225,17 @@ public class Game implements Runnable
 	{
 		this.menuState = menuState;
 	}
-	
+
 	public State getOptionState()
 	{
 		return optionState;
 	}
-	
+
 	public void setOptionState(State optionState)
 	{
 		this.optionState = optionState;
 	}
+
 	public Graphics2D getG2d()
 	{
 		return g2d;
@@ -239,5 +245,5 @@ public class Game implements Runnable
 	{
 		this.g2d = g2d;
 	}
-	
+
 }

@@ -12,7 +12,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import dev.sheradon.game.Handler;
-import dev.sheradon.game.ui.ClickListener;
 import dev.sheradon.game.ui.UIManager;
 
 public class MenuState extends State implements MouseListener, MouseMotionListener
@@ -21,7 +20,7 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 	private UIManager uiManager;
 	Rectangle start = new Rectangle(300, 500, 100, 64);
 
-	public MenuState(Handler handler, ClickListener clicker)
+	public MenuState(Handler handler)
 	{
 		super(handler);
 		try
@@ -32,12 +31,12 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 			e.printStackTrace();
 		}
 		uiManager = new UIManager(handler);
-		handler.setUIManager(uiManager);
+		handler.getMouseManager().setUIManager(uiManager);
 		// Buttons
-//		 if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
-//		 {
-//		 State.setState(handler.getGame().gameState);
-//		 }
+		// if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
+		// {
+		// State.setState(handler.getGame().gameState);
+		// }
 	}
 
 	@Override
@@ -52,6 +51,7 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 		g.drawImage(menu, 0, 0, null);
 		uiManager.render(g);
 	}
+
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
@@ -85,16 +85,16 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 	{
 	}
 
-	@Override
 	public void mousePressed(MouseEvent e)
 	{
+		
 		int x = e.getX();
 		int y = e.getY();
 		System.out.println(x);
-		 if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
-		 {
-		 State.setState(handler.getGame().gameState);
-		 }
+		if (e.getButton() == MouseEvent.BUTTON1)
+			leftPressed = true;
+		else if (e.getButton() == MouseEvent.BUTTON3)
+			rightPressed = true;
 	}
-	
+
 }
