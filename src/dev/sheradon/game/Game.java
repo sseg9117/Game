@@ -51,7 +51,6 @@ public class Game implements Runnable
 		this.title = title;
 		mouseManager = new MouseManager();
 		keyManager = new KeyManager();
-
 	}
 
 	private void init()
@@ -62,9 +61,6 @@ public class Game implements Runnable
 		display.getFrame().addMouseMotionListener(mouseManager);
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
-
-		display.getCanvas().addMouseListener(menuState);
-		display.getCanvas().addMouseMotionListener(menuState);
 		Assets.init();
 
 		handler = new Handler(this);
@@ -81,7 +77,6 @@ public class Game implements Runnable
 	private void tick()
 	{
 		keyManager.tick();
-		mouseManager.tick();
 
 		if (State.getState() != null)
 			State.getState().tick();

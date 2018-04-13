@@ -40,12 +40,6 @@ public abstract class UIObject
 		if(hovering)
 			onClick();
 	}
-
-	public void onMousePressed(MouseEvent e)
-	{
-		onClick();
-		
-	}
 	//getters and setters
 	public float getX()
 	{

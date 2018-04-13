@@ -1,10 +1,6 @@
 package dev.sheradon.game.state;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,11 +10,12 @@ import javax.imageio.ImageIO;
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.ui.UIManager;
 
-public class MenuState extends State implements MouseListener, MouseMotionListener
+public class MenuState extends State
 {
 	private BufferedImage menu;
 	private UIManager uiManager;
-	Rectangle start = new Rectangle(300, 500, 100, 64);
+	private boolean running = false;
+	private Thread thread;
 
 	public MenuState(Handler handler)
 	{
@@ -31,14 +28,12 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 			e.printStackTrace();
 		}
 		uiManager = new UIManager(handler);
-		handler.getMouseManager().setUIManager(uiManager);
-		// Buttons
-		// if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
-		// {
-		// State.setState(handler.getGame().gameState);
-		// }
+	
+//	 if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
+//	 {
+//	 State.setState(handler.getGame().gameState);
+//	 }
 	}
-
 	@Override
 	public void tick()
 	{
@@ -52,49 +47,34 @@ public class MenuState extends State implements MouseListener, MouseMotionListen
 		uiManager.render(g);
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent e)
+	public UIManager getUiManager()
 	{
+		return uiManager;
 	}
 
-	@Override
-	public void mouseReleased(MouseEvent e)
+	public void setUiManager(UIManager uiManager)
 	{
+		this.uiManager = uiManager;
 	}
 
-	@Override
-	public void mouseEntered(MouseEvent e)
+	public boolean isRunning()
 	{
-
+		return running;
 	}
 
-	@Override
-	public void mouseExited(MouseEvent e)
+	public void setRunning(boolean running)
 	{
-
+		this.running = running;
 	}
 
-	@Override
-	public void mouseDragged(MouseEvent e)
+	public Thread getThread()
 	{
-
+		return thread;
 	}
 
-	@Override
-	public void mouseMoved(MouseEvent e)
+	public void setThread(Thread thread)
 	{
-	}
-
-	public void mousePressed(MouseEvent e)
-	{
-		
-		int x = e.getX();
-		int y = e.getY();
-		System.out.println(x);
-		if (e.getButton() == MouseEvent.BUTTON1)
-			leftPressed = true;
-		else if (e.getButton() == MouseEvent.BUTTON3)
-			rightPressed = true;
+		this.thread = thread;
 	}
 
 }

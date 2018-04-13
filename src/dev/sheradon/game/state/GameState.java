@@ -1,16 +1,14 @@
 package dev.sheradon.game.state;
 
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.worlds.World;
 
-public class GameState extends State implements MouseListener, MouseMotionListener
+public class GameState extends State
 {
 	private World world;
+
 	public GameState(Handler handler)
 	{
 		super(handler);
@@ -29,54 +27,4 @@ public class GameState extends State implements MouseListener, MouseMotionListen
 	{
 		world.render(g);
 	}
-
-	@Override
-	public void mouseClicked(MouseEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseDragged(MouseEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
 }
