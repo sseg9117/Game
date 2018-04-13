@@ -5,8 +5,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import dev.sheradon.game.Handler;
-import dev.sheradon.game.state.GameState;
-import dev.sheradon.game.state.State;
 import dev.sheradon.game.ui.UIManager;
 
 public class MouseManager implements MouseListener, MouseMotionListener
@@ -16,18 +14,6 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	public boolean menu, options, back, start, select, controls;
 	public boolean quit, restart;
 	private UIManager uiManager;
-
-	private static State currentState = null;
-
-	public static void setState(State state)
-	{
-		currentState = state;
-	}
-
-	public static State getState()
-	{
-		return currentState;
-	}
 
 	public MouseManager()
 	{
@@ -82,19 +68,13 @@ public class MouseManager implements MouseListener, MouseMotionListener
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
-		int x = e.getX();
-		int y = e.getY();
-		System.out.println(x);
-		if (e.getButton() == MouseEvent.BUTTON1)
-			leftPressed = true;
-		else if (e.getButton() == MouseEvent.BUTTON3)
-			rightPressed = true;
-		if ((e.getButton() == MouseEvent.BUTTON1))
-		{
-			leftPressed = true;
-			State.setState(currentState);
-		}
-
+//		int x = e.getX();
+//		int y = e.getY();
+//		System.out.println(x);
+//		if (e.getButton() == MouseEvent.BUTTON1)
+//			leftPressed = true;
+//		else if (e.getButton() == MouseEvent.BUTTON3)
+//			rightPressed = true;
 	}
 
 	@Override

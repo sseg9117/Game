@@ -9,6 +9,7 @@ import dev.sheradon.game.gfx.Assets;
 import dev.sheradon.game.gfx.GameCamera;
 import dev.sheradon.game.input.KeyManager;
 import dev.sheradon.game.input.MouseManager;
+//import dev.sheradon.game.input.MouseManager;
 import dev.sheradon.game.state.ControlState;
 import dev.sheradon.game.state.GameState;
 import dev.sheradon.game.state.MenuState;
@@ -37,6 +38,7 @@ public class Game implements Runnable
 	// Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
+	private MouseManager state;
 
 	// Camera
 	private GameCamera gameCamera;
@@ -61,6 +63,8 @@ public class Game implements Runnable
 		display.getFrame().addMouseMotionListener(mouseManager);
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseListener(menuState);
+		display.getCanvas().addMouseMotionListener(menuState);
 		Assets.init();
 
 		handler = new Handler(this);

@@ -7,7 +7,7 @@ import java.awt.event.MouseMotionListener;
 import dev.sheradon.game.Handler;
 import dev.sheradon.game.ui.UIManager;
 
-public abstract class State
+public abstract class State implements MouseListener, MouseMotionListener
 {
 	private boolean leftPressed, rightPressed;
 	private UIManager uiManager;
@@ -70,10 +70,5 @@ public abstract class State
 	public void setUiManager(UIManager uiManager)
 	{
 		this.uiManager = uiManager;
-	}
-
-	public void onClick()
-	{
-		
 	}
 }
