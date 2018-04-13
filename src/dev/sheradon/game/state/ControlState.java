@@ -23,16 +23,19 @@ public class ControlState extends State
 	public ControlState(Handler handler)
 	{
 		super(handler);
-//		uiManager = new UIManager(handler);
-//		handler.getMouseManager().setUIManager(uiManager);
-//		uiManager.addObject(new UIImageButton(873, 620, 112, 52, Assets.btn_menu, new ClickListener() 
-//		{
-//			@Override
-//			public void onCick()
-//			{
-//				handler.getMouseManager().setUIManager(null);
-//				State.setState(handler.getGame().menuState);
-//		}   }));
+		uiManager = new UIManager(handler);
+		// handler.getMouseManager().setUIManager(uiManager);
+
+		uiManager.addObject(new UIImageButton(788, 610, 105, 45, Assets.btn_menu, new ClickListener()
+		{
+			@Override
+			public void onCick()
+			{
+				handler.getMouseManager().setUIManager(null);
+				State.setState(handler.getGame().menuState);
+			}
+		}));
+
 		try
 		{
 			test = ImageIO.read(new File("res/textures/Controls.png"));
@@ -40,7 +43,6 @@ public class ControlState extends State
 		{
 			e.printStackTrace();
 		}
-		uiManager = new UIManager(handler);
 	}
 
 	@Override

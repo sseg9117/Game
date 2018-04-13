@@ -25,14 +25,16 @@ public class MenuState extends State
 		super(handler);
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
-		uiManager.addObject(new UIImageButton(370, 250, 256, 95, Assets.btn_menu, new ClickListener() 
+
+		uiManager.addObject(new UIImageButton(370, 250, 256, 95, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
 			{
 				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().gameState);
-		}   }));
+				State.setState(handler.getGame().selectState);
+			}
+		}));
 		uiManager.addObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
 		{
 			@Override
@@ -40,7 +42,8 @@ public class MenuState extends State
 			{
 				handler.getMouseManager().setUIManager(null);
 				State.setState(handler.getGame().optionState);
-		}   }));
+			}
+		}));
 		uiManager.addObject(new UIImageButton(332, 455, 325, 95, Assets.btn_menu, new ClickListener()
 		{
 			@Override
@@ -48,15 +51,8 @@ public class MenuState extends State
 			{
 				handler.getMouseManager().setUIManager(null);
 				State.setState(handler.getGame().controlState);
-		}   }));
-//		uiManager.addObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
-//		{
-//			@Override
-//			public void onCick()
-//			{
-//				handler.getMouseManager().setUIManager(null);
-////				close();
-//		}   }));
+			}
+		}));
 
 		try
 		{
@@ -65,12 +61,8 @@ public class MenuState extends State
 		{
 			e.printStackTrace();
 		}
+	}
 
-		// if ((e.getButton() == MouseEvent.BUTTON1) && start.contains(e.getX(), e.getY()) )
-		// {
-		// State.setState(handler.getGame().gameState);
-		// }
-}
 	@Override
 	public void tick()
 	{

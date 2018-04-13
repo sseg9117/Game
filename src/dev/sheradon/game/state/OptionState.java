@@ -15,7 +15,7 @@ import dev.sheradon.game.ui.UIManager;
 
 public class OptionState extends State
 {
-	private BufferedImage test;
+	private BufferedImage option;
 	private UIManager uiManager;
 	private boolean running = false;
 	private Thread thread;
@@ -24,23 +24,24 @@ public class OptionState extends State
 	{
 		super(handler);
 		uiManager = new UIManager(handler);
-		handler.getMouseManager().setUIManager(uiManager);
-		uiManager.addObject(new UIImageButton(873, 620, 112, 52, Assets.btn_menu, new ClickListener() 
+		// handler.getMouseManager().setUIManager(uiManager);
+
+		uiManager.addObject(new UIImageButton(820, 600, 110, 45, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
 			{
 				handler.getMouseManager().setUIManager(null);
 				State.setState(handler.getGame().menuState);
-		}   }));
+			}
+		}));
 		try
 		{
-			test = ImageIO.read(new File("res/textures/Options.png"));
+			option = ImageIO.read(new File("res/textures/Options.png"));
 		} catch (IOException e)
 		{
 			e.printStackTrace();
 		}
-		uiManager = new UIManager(handler);
 	}
 
 	@Override
@@ -52,18 +53,18 @@ public class OptionState extends State
 	@Override
 	public void render(Graphics g)
 	{
-		g.drawImage(test, 0, 0, null);
+		g.drawImage(option, 0, 0, null);
 		uiManager.render(g);
 	}
 
 	public BufferedImage getTest()
 	{
-		return test;
+		return option;
 	}
 
 	public void setTest(BufferedImage test)
 	{
-		this.test = test;
+		this.option = test;
 	}
 
 	public UIManager getUiManager()
