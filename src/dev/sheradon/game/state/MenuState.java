@@ -26,7 +26,7 @@ public class MenuState extends State
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUIManager(uiManager);
 
-		uiManager.addObject(new UIImageButton(370, 250, 256, 95, Assets.btn_menu, new ClickListener()
+		uiManager.addMenuObject(new UIImageButton(370, 250, 256, 95, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -35,7 +35,7 @@ public class MenuState extends State
 				State.setState(handler.getGame().selectState);
 			}
 		}));
-		uiManager.addObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
+		uiManager.addMenuObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -44,7 +44,7 @@ public class MenuState extends State
 				State.setState(handler.getGame().optionState);
 			}
 		}));
-		uiManager.addObject(new UIImageButton(332, 455, 325, 95, Assets.btn_menu, new ClickListener()
+		uiManager.addMenuObject(new UIImageButton(332, 455, 325, 95, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()

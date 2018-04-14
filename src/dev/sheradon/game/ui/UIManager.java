@@ -10,12 +10,15 @@ import dev.sheradon.game.Handler;
 public class UIManager
 {
 	private Handler handler;
-	private ArrayList<UIObject> objects;
+	private ArrayList<UIObject> menuObjects;
+	private ArrayList<UIObject> selectObjects;
 	
 	public UIManager(Handler handler)
 	{
 		this.handler = handler;
-		objects = new ArrayList<UIObject>();
+		
+		menuObjects = new ArrayList<UIObject>();
+		selectObjects = new ArrayList<UIObject>();
 			
 	}
 	
@@ -29,48 +32,74 @@ public class UIManager
 		this.handler = handler;
 	}
 
-	public ArrayList<UIObject> getObjects()
+	public ArrayList<UIObject> getMenuObjects()
 	{
-		return objects;
+		return menuObjects;
+	}
+	public ArrayList<UIObject> getSelectObjuects()
+	{
+		return selectObjects;
 	}
 
-	public void setObjects(ArrayList<UIObject> objects)
+	public void setMenuObjects(ArrayList<UIObject> menuObjects)
 	{
-		this.objects = objects;
+		this.menuObjects = menuObjects;
 	}
-
+	public void setSelectObjects(ArrayList<UIObject> selectObjects)
+	{
+		this.selectObjects = selectObjects;
+	}
 	public void tick()
 	{
-		for(UIObject o : objects)
-			o.tick();
+		for(UIObject mo : menuObjects)
+			mo.tick();
+		for (UIObject so : selectObjects)
+			so.tick();
 	}
 	
 	public void render(Graphics g)
 	{
-		for(UIObject o : objects)
-			o.render(g);
+		for(UIObject mo : menuObjects)
+			mo.render(g);
+		for (UIObject so : selectObjects)
+			so.render(g);
 	}
 	
 	public void onMouseMove(MouseEvent e)
 	{
-		for(UIObject o : objects)
-			o.onMouseMove(e);
+		for(UIObject mo : menuObjects)
+			mo.onMouseMove(e);
+		for (UIObject so : selectObjects)
+			so.onMouseMove(e);
 	}
 	
 	public void onMouseRelease(MouseEvent e)
 	{
-		for(UIObject o : objects)
-			o.onMouseRelease(e);
+		for(UIObject mo : menuObjects)
+			mo.onMouseRelease(e);
+		for (UIObject so : selectObjects)
+			so.onMouseRelease(e);
 	}
 	
-	public void addObject(UIObject o)
+	public void addMenuObject(UIObject mo)
 	{
-		objects.add(o);
+		menuObjects.add(mo);
 	}
 	
-	public void removeObject(UIObject o)
+	public void removeMenuObject(UIObject mo)
 	{
-		objects.remove(o);
+		menuObjects.remove(mo);
 	}
+	public void addSelectObject(UIObject so)
+	{
+		selectObjects.add(so);
+	}
+	
+	public void removeSelectObject(UIObject so)
+	{
+		selectObjects.remove(so);
+	}
+
+
 	
 }
