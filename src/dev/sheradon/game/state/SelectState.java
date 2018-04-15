@@ -23,17 +23,10 @@ public class SelectState extends State
 	public SelectState(Handler handler)
 	{
 		super(handler);
-
 		uiManager = new UIManager(handler);
-		if(!(handler.getGame().menuState != null))
-		{
-			handler.getMouseManager().setUIManager(uiManager);		
-		}
-		else if((handler.getGame().menuState != null))
-		{
-			handler.getMouseManager().setUIManager(uiManager);
-		}
-		uiManager.addSelectObject(new UIImageButton(835, 625, 105, 50, Assets.btn_menu, new ClickListener()
+//		handler.getMouseManager().setUIManager(uiManager);
+
+		uiManager.addObject(new UIImageButton(835, 625, 105, 50, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -42,7 +35,7 @@ public class SelectState extends State
 				State.setState(handler.getGame().menuState);
 			}
 		}));
-		uiManager.addSelectObject(new UIImageButton(490, 205, 365, 390, Assets.btn_menu, new ClickListener()
+		uiManager.addObject(new UIImageButton(490, 205, 365, 390, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -51,7 +44,7 @@ public class SelectState extends State
 				State.setState(handler.getGame().gameState);
 			}
 		}));
-		uiManager.addSelectObject(new UIImageButton(140, 205, 360, 390, Assets.btn_menu, new ClickListener()
+		uiManager.addObject(new UIImageButton(140, 205, 360, 390, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()

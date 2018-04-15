@@ -26,7 +26,7 @@ public class OptionState extends State
 		uiManager = new UIManager(handler);
 		// handler.getMouseManager().setUIManager(uiManager);
 
-		uiManager.addMenuObject(new UIImageButton(820, 600, 110, 45, Assets.btn_menu, new ClickListener()
+		uiManager.addObject(new UIImageButton(820, 600, 110, 45, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
