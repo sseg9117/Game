@@ -32,7 +32,7 @@ public class MenuState extends State
 			public void onCick()
 			{
 				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().selectState);
+				State.setState(handler.getGame().gameState);
 			}
 		}));
 		uiManager.addObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
