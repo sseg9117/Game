@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class Tile
+//startAbstraction
 {
 	// Static STUFF HERE
 
@@ -48,5 +49,5 @@ public class Tile
 	{
 		return id;
 	}
-	
+	//endAbstraction
 }

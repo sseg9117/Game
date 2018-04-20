@@ -71,7 +71,7 @@ public class Game implements Runnable
 		setMenuState(new MenuState(handler));
 		setOptionState(new OptionState(handler));
 		setSelectState(new SelectState(handler));
-		State.setState(menuState);
+		State.setState(selectState);
 	}
 
 	private void tick()

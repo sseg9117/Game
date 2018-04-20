@@ -21,47 +21,6 @@ public class Player extends Creature
 	private Inventory inventory;
 	
 
-	
-	public Player(Handler handler,float x, float y)
-	{
-		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
-
-		bounds.x = 12;
-		bounds.y = 17;
-		bounds.width = 35;
-		bounds.height = 42;
-		
-		//Animations
-		animleft = new Animation(100, Assets.player_left);
-		animright = new Animation(100, Assets.player_right);
-		animup = new Animation(100, Assets.player_up);
-		animdown = new Animation(100, Assets.player_down);
-		animstill = new Animation(500, Assets.player_still);
-		animjump = new Animation(100, Assets.player_jump);
-		
-		inventory = new Inventory(handler);
-	}
-
-	@Override
-	public void tick()
-	{
-		//Animations
-		animleft.tick();
-		animright.tick();
-		animup.tick();
-		animdown.tick();
-		animstill.tick();
-		animjump.tick();
-		//Movement
-		move();
-		getInput();
-		handler.getGameCamera().centerOnEntity(this);
-		inventory.tick();
-	
-		//Attack method if i need it
-		checkAttacks();
-	}
-	
 	private void checkAttacks()
 	{
 		Rectangle cb = getCollisionBounds(0,0);
@@ -86,17 +45,60 @@ public class Player extends Creature
 		}
 		
 		for(dev.sheradon.game.entities.Entity e : handler.getWorld().getEntityManager().getEntities())
-			{	
-				if(e.equals(this))
-					continue;
+		{	
+			if(e.equals(this))
+				continue;
 			
-				if(e.getCollisionBounds(0,0).intersects(ar))
-				{
-					e.hurt(1);
-					return;
-				}
+			if(e.getCollisionBounds(0,0).intersects(ar))
+			{
+				e.hurt(1);
+				return;
 			}
+		}
 		
+	}
+	//startComplexity
+	//used some stackoverflow for help and a little of CodNMore's youtube tutorial video
+	public Player(Handler handler,float x, float y)
+	{
+		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+
+		bounds.x = 12;
+		bounds.y = 17;
+		bounds.width = 35;
+		bounds.height = 42;
+		
+		//Animations
+		animleft = new Animation(100, Assets.player_left);
+		animright = new Animation(100, Assets.player_right);
+		animup = new Animation(100, Assets.player_up);
+		animdown = new Animation(100, Assets.player_down);
+		animstill = new Animation(500, Assets.player_still);
+		animjump = new Animation(100, Assets.player_jump);
+		
+		inventory = new Inventory(handler);
+	}
+	
+
+
+	@Override
+	public void tick()
+	{
+		//Animations
+		animleft.tick();
+		animright.tick();
+		animup.tick();
+		animdown.tick();
+		animstill.tick();
+		animjump.tick();
+		//Movement
+		move();
+		getInput();
+		handler.getGameCamera().centerOnEntity(this);
+		inventory.tick();
+	
+		//Attack method if i need it
+		checkAttacks();
 	}
 
 	private void getInput()
@@ -162,7 +164,7 @@ public class Player extends Creature
 			return animstill.getCurrentFrame();
 		}
 
-	
+	//endComplexity
 	}
 
 	public Inventory getInventory()
