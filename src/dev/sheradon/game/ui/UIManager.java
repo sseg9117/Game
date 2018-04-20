@@ -11,12 +11,13 @@ public class UIManager
 {
 	private Handler handler;
 	private ArrayList<UIObject> objects;
+	private ArrayList<UIObject2> objects2;
 
 	public UIManager(Handler handler)
 	{
 		this.handler = handler;
 		objects = new ArrayList<UIObject>();
-			
+		objects2= new ArrayList<UIObject2>();		
 	}
 	
 	public Handler getHandler()
@@ -72,5 +73,5 @@ public class UIManager
 	{
 		objects.remove(o);
 	}
-	
+
 }
