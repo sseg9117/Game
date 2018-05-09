@@ -13,7 +13,7 @@ public class Assets
 	public static BufferedImage[] player2_right, player2_left, player2_up,
 			player2_down, player2_still, player2_jump;
 	
-	public static BufferedImage[] btn_start, btn_menu;
+	public static BufferedImage[] btn_back, btn_menu;
 
 
 	public static void init()
@@ -23,6 +23,9 @@ public class Assets
 		
 		btn_menu = new BufferedImage[1];
 		btn_menu[0] = sheet.crop(width *4, height *5, width, height);
+		
+		btn_back = new BufferedImage[1];
+		btn_back[0] = sheet.crop(width *3, height *5, width, height);
 		
 		grass = sheet.crop(width * 0, 0, width, height);
 		stone = sheet.crop(width * 1, 0, width, height);

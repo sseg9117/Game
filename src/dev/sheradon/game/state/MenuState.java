@@ -63,6 +63,24 @@ public class MenuState extends State
 				State.setState(handler.getGame().menuState);
 			}
 		}));
+		uiManager.addObject(new UIImageButton(332, 555, 325, 90, Assets.btn_menu, new ClickListener()
+		{
+			@Override
+			public void onCick()
+			{
+				handler.getMouseManager().setUIManager(null);
+				if (!running)
+					return;
+				running = false;
+				try
+				{
+					thread.join();
+				} catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}));
 		try
 		{
 			menu = ImageIO.read(new File("res/textures/Menu.png"));

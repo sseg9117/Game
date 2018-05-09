@@ -24,7 +24,7 @@ public class OptionState extends State
 	{
 		super(handler);
 		uiManager1 = new UIManager(handler);		
-		handler.getMouseManager().setUIManager(uiManager1);
+//		handler.getMouseManager().setUIManager(uiManager1);
 
 		uiManager1.addObject(new UIImageButton(820, 600, 110, 45, Assets.btn_menu, new ClickListener()
 		{
