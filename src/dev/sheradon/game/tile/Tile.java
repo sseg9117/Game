@@ -16,6 +16,7 @@ public class Tile
 	public static Tile leafTile = new LeafTile(3);
 	public static Tile skyTile = new SkyTile(4);
 	public static Tile lavaTile = new LavaTile(5);
+	public static Tile cloudTile = new CloudTile(6);
 
 	// CLASS
 	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
