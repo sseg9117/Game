@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class Assets
 {
-	private static final int width = 32, height = 32;
+	private static final int width = 64, height = 64;
 
 	public static BufferedImage dirt, sky, grass, stone, tree, wood, lava, leaves, chest, cloud;
 	public static BufferedImage[] player_right, player_left, player_up,
@@ -27,7 +27,7 @@ public class Assets
 		btn_back = new BufferedImage[1];
 		btn_back[0] = sheet.crop(width *3, height *5, width, height);
 		
-		cloud = sheet.crop(width * 5,height * 5, width, height);
+		cloud = sheet.crop(width * 2,height * 1, width, height);
 		grass = sheet.crop(width * 0, 0, width, height);
 		stone = sheet.crop(width * 1, 0, width, height);
 		dirt = sheet.crop(width * 2, 0, width, height);

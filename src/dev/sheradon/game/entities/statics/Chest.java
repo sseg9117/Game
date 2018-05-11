@@ -30,6 +30,7 @@ public class Chest extends StaticEntity
 	@Override
 	public void render(Graphics g)
 	{
+
 	}
 
 }

@@ -63,18 +63,18 @@ public class Player extends Creature
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-		bounds.x = 12;
-		bounds.y = 17;
-		bounds.width = 35;
-		bounds.height = 42;
+		bounds.x = 24;
+		bounds.y = 34;
+		bounds.width = 70;
+		bounds.height = 84;
 		
 		//Animations
-		animleft = new Animation(100, Assets.player_left);
-		animright = new Animation(100, Assets.player_right);
-		animup = new Animation(100, Assets.player_up);
-		animdown = new Animation(100, Assets.player_down);
-		animstill = new Animation(500, Assets.player_still);
-		animjump = new Animation(100, Assets.player_jump);
+		animleft = new Animation(100, Assets.player2_left);
+		animright = new Animation(100, Assets.player2_right);
+		animup = new Animation(100, Assets.player2_up);
+		animdown = new Animation(100, Assets.player2_down);
+		animstill = new Animation(500, Assets.player2_still);
+		animjump = new Animation(100, Assets.player2_jump);
 		
 		inventory = new Inventory(handler);
 	}
@@ -163,7 +163,6 @@ public class Player extends Creature
 		{
 			return animstill.getCurrentFrame();
 		}
-
 	//endComplexity
 	}
 
