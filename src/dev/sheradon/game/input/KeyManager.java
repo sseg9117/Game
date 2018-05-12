@@ -3,6 +3,10 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import dev.sheradon.game.Handler;
+import dev.sheradon.game.state.State;
+import dev.sheradon.game.ui.UIManager;
+
 public class KeyManager implements KeyListener
 {
 	private boolean[] keys, justPressed, cantPress;
@@ -37,6 +41,10 @@ public class KeyManager implements KeyListener
 		if(keyJustPressed(KeyEvent.VK_TAB))
 		{
 			System.out.println("Just pressed");
+		}
+		if(keyJustPressed(KeyEvent.VK_ESCAPE))
+		{
+//			State.setState(State.getState().getGame().menuState);
 		}
 		
 		up = keys[KeyEvent.VK_W];

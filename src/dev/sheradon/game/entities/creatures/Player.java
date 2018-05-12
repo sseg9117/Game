@@ -62,11 +62,16 @@ public class Player extends Creature
 	public Player(Handler handler,float x, float y)
 	{
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+//
+//		bounds.x = 20;
+//		bounds.y = 30;
+//		bounds.width = 65;
+//		bounds.height = 70;
 
-		bounds.x = 24;
-		bounds.y = 34;
-		bounds.width = 70;
-		bounds.height = 84;
+		bounds.x = 10;
+		bounds.y = 15;
+		bounds.width = 33;
+		bounds.height = 35;
 		
 		//Animations
 		animleft = new Animation(100, Assets.player2_left);
