@@ -136,11 +136,7 @@ public class Player extends Creature
 //				bounds.width, bounds.height);
 	}
 	
-	@Override
-	public void die()
-	{
-		System.out.println("Game Over");
-	}
+
 	
 	private BufferedImage getCurrentAnimationFrame()
 	{
