@@ -23,64 +23,61 @@ public class MenuState extends State
 	public MenuState(Handler handler)
 	{
 		super(handler);
-		uiManager = new UIManager(handler);
-		
+		uiManager = new UIManager(handler);	
+
+
 		handler.getMouseManager().setUIManager(uiManager);
 
-		uiManager.addObject(new UIImageButton(370, 250, 256, 95, Assets.btn_menu, new ClickListener()
-		{
-			@Override
-			public void onCick()
-			{
-				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().gameState);
-			}
-		}));
-		uiManager.addObject(new UIImageButton(350, 355, 286, 95, Assets.btn_menu, new ClickListener()
-		{
-			@Override
-			public void onCick()
-			{
-				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().optionState);
-			}
-		}));
-		uiManager.addObject(new UIImageButton(332, 455, 325, 95, Assets.btn_menu, new ClickListener()
-		{
-			@Override
-			public void onCick()
-			{
-				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().controlState);
-			}
-		}));
-		uiManager.addObject(new UIImageButton(835, 625, 105, 50, Assets.btn_menu, new ClickListener()
-		{
-			@Override
-			public void onCick()
-			{
-				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().menuState);
-			}
-		}));
-		uiManager.addObject(new UIImageButton(332, 555, 325, 90, Assets.btn_menu, new ClickListener()
-		{
-			@Override
-			public void onCick()
-			{
-				handler.getMouseManager().setUIManager(null);
-				if (!running)
-					return;
-				running = false;
-				try
+		uiManager.addObject(new UIImageButton(370, 250, 256, 95,
+				Assets.btn_menu, new ClickListener()
 				{
-					thread.join();
-				} catch (InterruptedException e)
+					@Override
+					public void onCick()
+					{
+						handler.getMouseManager().setUIManager(null);
+						State.setState(handler.getGame().gameState);
+					}
+				}));
+		uiManager.addObject(new UIImageButton(350, 355, 286, 95,
+				Assets.btn_menu, new ClickListener()
 				{
-					e.printStackTrace();
-				}
-			}
-		}));
+					@Override
+					public void onCick()
+					{
+						handler.getMouseManager().setUIManager(null);
+						State.setState(handler.getGame().optionState);
+					}
+				}));
+		uiManager.addObject(new UIImageButton(332, 455, 325, 95,
+				Assets.btn_menu, new ClickListener()
+				{
+					@Override
+					public void onCick()
+					{
+						handler.getMouseManager().setUIManager(null);
+						State.setState(handler.getGame().controlState);
+					}
+				}));
+		uiManager.addObject(new UIImageButton(835, 625, 105, 50,
+				Assets.btn_menu, new ClickListener()
+				{
+					@Override
+					public void onCick()
+					{
+						handler.getMouseManager().setUIManager(null);
+						State.setState(handler.getGame().menuState);
+					}
+				}));
+		uiManager.addObject(new UIImageButton(332, 555, 325, 90,
+				Assets.btn_menu, new ClickListener()
+				{
+					@Override
+					public void onCick()
+					{
+						handler.getMouseManager().setUIManager(null);
+						System.exit(0);
+					}
+				}));
 		try
 		{
 			menu = ImageIO.read(new File("res/textures/Menu.png"));
@@ -93,14 +90,20 @@ public class MenuState extends State
 	@Override
 	public void tick()
 	{
-		uiManager.tick();
+//		if (uiManager != null)
+//		{
+			uiManager.tick();
+//		}
+//		else
+//			System.out.println("this isnt working");
 	}
 
 	@Override
 	public void render(Graphics g)
 	{
+			uiManager.render(g);
+
 		g.drawImage(menu, 0, 0, null);
-		uiManager.render(g);
 	}
 
 	public boolean isRunning()

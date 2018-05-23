@@ -17,17 +17,17 @@ import dev.sheradon.game.ui.UIManager;
 public class OptionState extends State
 {
 	private BufferedImage option;
-	private UIManager uiManager1;
+	private UIManager uiManager;
 	private boolean running = false;
 	private Thread thread;
 
 	public OptionState(Handler handler)
 	{
 		super(handler);
-		uiManager1 = new UIManager(handler);		
-//		handler.getMouseManager().setUIManager(uiManager1);
+		uiManager = new UIManager(handler);		
+//		handler.getMouseManager().setUIManager(uiManager);
 
-		uiManager1.addObject(new UIImageButton(820, 600, 110, 45, Assets.btn_menu, new ClickListener()
+		uiManager.addObject(new UIImageButton(820, 600, 110, 45, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -47,14 +47,14 @@ public class OptionState extends State
 	@Override
 	public void tick()
 	{
-		uiManager1.tick();
+			uiManager.tick();
 	}
 
 	@Override
 	public void render(Graphics g)
 	{
 		g.drawImage(option, 0, 0, null);
-		uiManager1.render(g);
+		uiManager.render(g);
 	}
 
 	public BufferedImage getTest()
@@ -69,12 +69,12 @@ public class OptionState extends State
 
 	public UIManager getUiManager()
 	{
-		return uiManager1;
+		return uiManager;
 	}
 
 	public void setUiManager(UIManager uiManager)
 	{
-		this.uiManager1 = uiManager;
+		this.uiManager = uiManager;
 	}
 
 	public boolean isRunning()

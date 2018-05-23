@@ -24,7 +24,7 @@ public class ControlState extends State
 	{
 		super(handler);
 		uiManager = new UIManager(handler);
-		// handler.getMouseManager().setUIManager(uiManager);
+//		 handler.getMouseManager().setUIManager(uiManager);
 
 		uiManager.addObject(new UIImageButton(788, 610, 105, 45, Assets.btn_menu, new ClickListener()
 		{
@@ -48,14 +48,20 @@ public class ControlState extends State
 	@Override
 	public void tick()
 	{
-		uiManager.tick();
+		if (uiManager != null)
+		{
+			uiManager.tick();
+		}
+		else
+			System.out.println("this isnt working");
+
 	}
 
 	@Override
 	public void render(Graphics g)
 	{
 		g.drawImage(test, 0, 0, null);
-		uiManager.render(g);
+
 	}
 
 	public BufferedImage getTest()
