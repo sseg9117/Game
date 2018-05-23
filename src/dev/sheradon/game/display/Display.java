@@ -10,7 +10,7 @@ public class Display
 	private JFrame menu;
 	private JFrame frame;
 	private Canvas menuScreen;
-	private Canvas canvas;
+	private Canvas canvas;	
 
 	private String title;
 	private int width, height;

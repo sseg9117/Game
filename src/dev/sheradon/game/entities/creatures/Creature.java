@@ -7,7 +7,7 @@ import dev.sheradon.game.tile.Tile;
 public abstract class Creature extends Entity
 {
 
-	public static final float DEFAULT_SPEED = 5.0f;
+	public static final float DEFAULT_SPEED = 9.0f;
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
 			DEFAULT_CREATURE_HEIGHT = 64;
 	protected float gravity;
@@ -199,5 +199,9 @@ public abstract class Creature extends Entity
 	{
 		return DEFAULT_CREATURE_HEIGHT;
 	}
-	
+	@Override
+	public void die()
+	{
+		System.out.println("Game Over");
+	}
 }
