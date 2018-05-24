@@ -28,13 +28,13 @@ public class Assets
 		btn_back[0] = sheet.crop(width *3, height *5, width, height);
 		
 		cloud = sheet.crop(width * 0,height * 0, width, height);
-		grass = sheet.crop(width * 0, 0, width, height);
+		grass = sheet.crop(width * 2, 0, width, height);
 		stone = sheet.crop(width * 3, 0, width, height);
-		dirt = sheet.crop(width * 2, 0, width, height);
+		dirt = sheet.crop(width * 1, 0, width, height);
 		sky = sheet.crop(width * 0, height * 0, width, height);
 		leaves = sheet.crop(width * 1, height * 2, width, height);
 		wood = sheet.crop(width * 1, height * 1, width, height);
-		lava = sheet.crop(width * 2, height * 2, width, height);
+		lava = sheet.crop(width * 4, height * 0, width, height);
 		
 		tree = sheet.crop(width * 0, height * 1, width, height * 2);
 		chest = sheet.crop(width * 0, height * 5, width, height);

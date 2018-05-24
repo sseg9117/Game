@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import dev.sheradon.game.Handler;
+import dev.sheradon.game.entities.Entity;
 import dev.sheradon.game.gfx.Animation;
 import dev.sheradon.game.gfx.Assets;
 import dev.sheradon.game.inventory.Inventory;
@@ -44,7 +45,7 @@ public class Player extends Creature
 			return;
 		}
 		
-		for(dev.sheradon.game.entities.Entity e : handler.getWorld().getEntityManager().getEntities())
+		for(Entity e : handler.getWorld().getEntityManager().getEntities())
 		{	
 			if(e.equals(this))
 				continue;
@@ -69,17 +70,17 @@ public class Player extends Creature
 //		bounds.height = 70;
 
 		bounds.x = 10;
-		bounds.y = 15;
-		bounds.width = 33;
+		bounds.y = 17;
+		bounds.width = 30;
 		bounds.height = 35;
 		
 		//Animations
-		animleft = new Animation(100, Assets.player2_left);
-		animright = new Animation(100, Assets.player2_right);
-		animup = new Animation(100, Assets.player2_up);
-		animdown = new Animation(100, Assets.player2_down);
+		animleft = new Animation(500, Assets.player2_left);
+		animright = new Animation(500, Assets.player2_right);
+		animup = new Animation(500, Assets.player2_up);
+		animdown = new Animation(500, Assets.player2_down);
 		animstill = new Animation(500, Assets.player2_still);
-		animjump = new Animation(100, Assets.player2_jump);
+		animjump = new Animation(500, Assets.player2_jump);
 		
 		inventory = new Inventory(handler);
 	}

@@ -15,7 +15,7 @@ public class KeyManager implements KeyListener
 	
 	public KeyManager()
 	{
-		keys = new boolean[256];
+		keys = new boolean[512];
 		justPressed = new boolean[keys.length];
 		cantPress = new boolean[keys.length];
 	}
