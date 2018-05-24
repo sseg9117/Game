@@ -27,12 +27,13 @@ public class World
 		entityManager = new EntityManager(handler, new Player(handler, 500, 700), null);
 		itemManager = new ItemManager(handler);
 //		entityManager.addEntity(new Tree(handler, 100, 250));
+
 		
 
 		loadWorld(path);
 
-		entityManager.getPlayer().setX(spawnX);
-		entityManager.getPlayer().setY(spawnY);
+		entityManager.getPlayer().setX(150);
+		entityManager.getPlayer().setY(300);
 
 	}
 
@@ -49,10 +50,10 @@ public class World
 
 	public void render(Graphics g)
 	{
-		int xStart = (int) Math.max(0, handler.getGameCamera().getXoffset() / Tile.TILEWIDTH);
-		int xEnd = (int) Math.min(width, (handler.getGameCamera().getXoffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);
-		int yStart = (int) Math.max(0, handler.getGameCamera().getYoffset() / Tile.TILEHEIGHT);
-		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getHeight()) / Tile.TILEHEIGHT + 1);
+		int xStart = (int) Math.max(-1, handler.getGameCamera().getXoffset() / Tile.TILEWIDTH );
+		int xEnd = (int) Math.min(width, (handler.getGameCamera().getXoffset() + handler.getWidth()) / Tile.TILEWIDTH +1 );
+		int yStart = (int) Math.max(-1, handler.getGameCamera().getYoffset() / Tile.TILEHEIGHT );
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getYoffset() + handler.getHeight()) / Tile.TILEHEIGHT +1);
 
 		for (int y = yStart; y < yEnd; y++)
 		{
@@ -70,11 +71,11 @@ public class World
 	public Tile getTile(int x, int y)
 	{
 		if (x < 0 || y < 0 || x >= width || y >= height)
-			return Tile.grassTile;
+			return Tile.skyTile;
 
 		Tile t = Tile.tiles[tiles[x][y]];
 		if (t == null)
-			return Tile.dirtTile;
+			return Tile.skyTile;
 
 		return t;
 	}

@@ -46,22 +46,22 @@ public abstract class Entity
 		}
 	}
 
-	public boolean checkEntityCollision(float xOffset, float yOffset)
+	public boolean checkEntityCollision(float xOffset, double yMove)
 	{
 		for (Entity e : handler.getWorld().getEntityManager().getEntities())
 		{
 			if (e.equals(this))
 				continue;
-			if (e.getCollisionBounds(0f, 0f)
-					.intersects(getCollisionBounds(xOffset, yOffset)))
+			if (e.getCollisionBounds(1f, 1f)
+					.intersects(getCollisionBounds(xOffset, yMove)))
 				return true;
 		}
 		return false;
 	}
-	public Rectangle getCollisionBounds(float xOffset, float yOffset)
+	public Rectangle getCollisionBounds(float xOffset, double yMove)
 	{
 		return new Rectangle((int) (x + bounds.x + xOffset),
-				(int) (y + bounds.y + yOffset), bounds.width, bounds.height);
+				(int) (y + bounds.y + yMove), bounds.width, bounds.height);
 	}
 
 	public double getX()

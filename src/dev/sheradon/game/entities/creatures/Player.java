@@ -25,7 +25,7 @@ public class Player extends Creature
 
 	private void checkAttacks()
 	{
-		Rectangle cb = getCollisionBounds(0,0);
+		Rectangle cb = getCollisionBounds(1,1);
 		Rectangle ar = new Rectangle();
 		int arSize = 30;
 		ar.width = arSize;
@@ -34,12 +34,12 @@ public class Player extends Creature
 		if(handler.getKeyManager().attackLeft)
 		{
 			ar.x = cb.x - arSize;
-			ar.y = cb.y + cb.height /2 - arSize /2;
+			ar.y = cb.y + cb.height /1 - arSize /1;
 		}
 		else if(handler.getKeyManager().attackRight)
 		{
 			ar.x = cb.x + cb.width;
-			ar.y = cb.y + cb.height /2 - arSize /2;
+			ar.y = cb.y + cb.height /1 - arSize /1;
 		}
 		else
 		{
@@ -72,7 +72,7 @@ public class Player extends Creature
 
 		bounds.x = 30;
 		bounds.y = 42;
-		bounds.width = 60;
+		bounds.width = 65;
 		bounds.height = 70;
 		
 		//Animations
@@ -102,10 +102,10 @@ public class Player extends Creature
 		move();
 		getInput();
 		handler.getGameCamera().centerOnEntity(this);
-		inventory.tick();
+//		inventory.tick();
 	
 		//Attack method if i need it
-		checkAttacks();
+//		checkAttacks();
 	}
 
 	private void getInput()
@@ -130,12 +130,12 @@ public class Player extends Creature
 	public void render(Graphics g)
 	{
 		g.drawImage(getCurrentAnimationFrame(), (int) (x- handler.getGameCamera().getXoffset()), (int) (y - handler.getGameCamera().getYoffset()), width, height, null);
-		inventory.render(g);
-		
-		g.setColor(Color.RED);
-		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
-				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
-				bounds.width, bounds.height);
+//		inventory.render(g);
+//		
+//		g.setColor(Color.RED);
+//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getXoffset()),
+//				(int) (y + bounds.y - handler.getGameCamera().getYoffset()),
+//				bounds.width, bounds.height);
 	}
 	
 

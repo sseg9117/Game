@@ -19,7 +19,7 @@ public class Tile
 	public static Tile cloudTile = new CloudTile(6);
 
 	// CLASS
-	public static final int TILEWIDTH = 128, TILEHEIGHT = 128;
+	public static final int TILEWIDTH = 100, TILEHEIGHT = 100;
 	protected BufferedImage texture;
 	protected final int id;
 

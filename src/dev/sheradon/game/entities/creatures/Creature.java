@@ -7,7 +7,7 @@ import dev.sheradon.game.tile.Tile;
 public abstract class Creature extends Entity
 {
 
-	public static final float DEFAULT_SPEED = 9.0f;
+	public static final float DEFAULT_SPEED = 15.0f;
 	public static final int DEFAULT_CREATURE_WIDTH = 128,
 			DEFAULT_CREATURE_HEIGHT = 128;
 	protected float gravity;
@@ -71,7 +71,7 @@ public abstract class Creature extends Entity
 			}
 			else
 			{
-				x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x;
+				x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x +1;
 			}
 		}
 	}
@@ -92,7 +92,7 @@ public abstract class Creature extends Entity
 			} 
 			else
 			{
-				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
+				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y +1;
 			}
 		} 
 		else if (yMove > 0)
@@ -108,7 +108,7 @@ public abstract class Creature extends Entity
 			} 
 			else
 			{
-				y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
+				y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height -1;
 			}
 		}
 

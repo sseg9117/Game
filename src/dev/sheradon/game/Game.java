@@ -55,13 +55,13 @@ public class Game implements Runnable
 
 	private void init()
 	{
+		Assets.init();
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
 		display.getFrame().addMouseListener(mouseManager);
 		display.getFrame().addMouseMotionListener(mouseManager);
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
-		Assets.init();
 
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);

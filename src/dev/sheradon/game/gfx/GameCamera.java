@@ -46,9 +46,9 @@ public class GameCamera
 	}
 	public void move(float xAmt, float yAmt)
 	{
+		checkBlankSpace();
 		xoffset += xAmt;
 		yoffset += yAmt;
-		checkBlankSpace();
 	}
 	public double getXoffset()
 	{

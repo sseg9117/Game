@@ -15,7 +15,7 @@ public class KeyManager implements KeyListener
 	
 	public KeyManager()
 	{
-		keys = new boolean[512];
+		keys = new boolean[256];
 		justPressed = new boolean[keys.length];
 		cantPress = new boolean[keys.length];
 	}
@@ -28,11 +28,12 @@ public class KeyManager implements KeyListener
 			{
 				cantPress[i] = false;
 			}
-			else if(justPressed[i]) {
+			else if(justPressed[i]) 
+			{
 				cantPress[i] = true;
 				justPressed[i] = false;
 			}
-			if(!cantPress[i] && keys[i])
+			else if(!cantPress[i] && keys[i])
 			{
 				justPressed[i] = true;
 			}
