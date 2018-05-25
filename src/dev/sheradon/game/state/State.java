@@ -7,7 +7,7 @@ import dev.sheradon.game.ui.UIManager;
 
 public abstract class State
 {
-	private UIManager uiManager;
+	private UIManager menuManager;
 
 	public void setUIManager(UIManager uiManager)
 	{
@@ -41,12 +41,12 @@ public abstract class State
 
 	public UIManager getUiManager()
 	{
-		return uiManager;
+		return menuManager;
 	}
 
 	public void setUiManager(UIManager uiManager)
 	{
-		this.uiManager = uiManager;
+		this.menuManager = uiManager;
 	}
 
 }

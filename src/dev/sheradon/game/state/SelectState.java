@@ -16,17 +16,17 @@ import dev.sheradon.game.ui.UIManager;
 public class SelectState extends State
 {
 	private BufferedImage test;
-	private UIManager uiManager;
+	private UIManager selectManager;
 	private boolean running = false;
 	private Thread thread;
 
 	public SelectState(Handler handler)
 	{
 		super(handler);
-		uiManager = new UIManager(handler);
-//		handler.getMouseManager().setUIManager(uiManager);
-
-		uiManager.addObject(new UIImageButton(835, 625, 105, 50, Assets.btn_menu, new ClickListener()
+		selectManager = new UIManager(handler);
+	    handler.getMouseManager().setUIManager(selectManager);
+	    
+		selectManager.addObject(new UIImageButton(835, 625, 105, 50, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -35,7 +35,7 @@ public class SelectState extends State
 				State.setState(handler.getGame().menuState);
 			}
 		}));
-		uiManager.addObject(new UIImageButton(490, 205, 365, 390, Assets.btn_menu, new ClickListener()
+		selectManager.addObject(new UIImageButton(490, 205, 365, 390, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -44,7 +44,7 @@ public class SelectState extends State
 				State.setState(handler.getGame().gameState);
 			}
 		}));
-		uiManager.addObject(new UIImageButton(140, 205, 360, 390, Assets.btn_menu, new ClickListener()
+		selectManager.addObject(new UIImageButton(140, 205, 360, 390, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -65,14 +65,14 @@ public class SelectState extends State
 	@Override
 	public void tick()
 	{
-		uiManager.tick();
+		selectManager.tick();
 	}
 
 	@Override
 	public void render(Graphics g)
 	{
 		g.drawImage(test, 0, 0, null);
-		uiManager.render(g);
+		selectManager.render(g);
 	}
 
 	public BufferedImage getTest()
@@ -87,12 +87,12 @@ public class SelectState extends State
 
 	public UIManager getUiManager()
 	{
-		return uiManager;
+		return selectManager;
 	}
 
 	public void setUiManager(UIManager uiManager)
 	{
-		this.uiManager = uiManager;
+		this.selectManager = uiManager;
 	}
 
 	public boolean isRunning()

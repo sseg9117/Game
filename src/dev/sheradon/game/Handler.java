@@ -11,6 +11,10 @@ public class Handler
 	private Game game;
 	private World world;
 	private UIManager uiManager;
+	private UIManager menuManager;
+	private UIManager selectManager;
+	private UIManager optionManager;
+	private UIManager controlsManager;
 
 	public Handler(Game game)
 	{
@@ -75,6 +79,78 @@ public class Handler
 	public void setUiManager(UIManager uiManager)
 	{
 		this.uiManager = uiManager;
+	}
+
+
+	/**
+	 * @return the menuManager
+	 */
+	public UIManager getMenuManager()
+	{
+		return menuManager;
+	}
+
+
+	/**
+	 * @param menuManager the menuManager to set
+	 */
+	public void setMenuManager(UIManager menuManager)
+	{
+		this.menuManager = menuManager;
+	}
+
+
+	/**
+	 * @return the selectManager
+	 */
+	public UIManager getSelectManager()
+	{
+		return selectManager;
+	}
+
+
+	/**
+	 * @param selectManager the selectManager to set
+	 */
+	public void setSelectManager(UIManager selectManager)
+	{
+		this.selectManager = selectManager;
+	}
+
+
+	/**
+	 * @return the optionManager
+	 */
+	public UIManager getOptionManager()
+	{
+		return optionManager;
+	}
+
+
+	/**
+	 * @param optionManager the optionManager to set
+	 */
+	public void setOptionManager(UIManager optionManager)
+	{
+		this.optionManager = optionManager;
+	}
+
+
+	/**
+	 * @return the controlsManager
+	 */
+	public UIManager getControlsManager()
+	{
+		return controlsManager;
+	}
+
+
+	/**
+	 * @param controlsManager the controlsManager to set
+	 */
+	public void setControlsManager(UIManager controlsManager)
+	{
+		this.controlsManager = controlsManager;
 	}
 
 }

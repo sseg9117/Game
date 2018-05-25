@@ -16,19 +16,20 @@ import dev.sheradon.game.ui.UIManager;
 public class MenuState extends State
 {
 	private BufferedImage menu;
-	private UIManager uiManager;
+	private UIManager menuManager;
 	private boolean running = false;
 	private Thread thread;
 
 	public MenuState(Handler handler)
 	{
 		super(handler);
-		uiManager = new UIManager(handler);	
+		menuManager = new UIManager(handler);	
 
+		handler.getMouseManager().setUIManager(menuManager);
+		
+			
 
-		handler.getMouseManager().setUIManager(uiManager);
-
-		uiManager.addObject(new UIImageButton(370, 250, 256, 95,
+		menuManager.addObject(new UIImageButton(370, 250, 256, 95,
 				Assets.btn_menu, new ClickListener()
 				{
 					@Override
@@ -38,7 +39,7 @@ public class MenuState extends State
 						State.setState(handler.getGame().gameState);
 					}
 				}));
-		uiManager.addObject(new UIImageButton(350, 355, 286, 95,
+		menuManager.addObject(new UIImageButton(350, 355, 286, 95,
 				Assets.btn_menu, new ClickListener()
 				{
 					@Override
@@ -48,7 +49,7 @@ public class MenuState extends State
 						State.setState(handler.getGame().optionState);
 					}
 				}));
-		uiManager.addObject(new UIImageButton(332, 455, 325, 95,
+		menuManager.addObject(new UIImageButton(332, 455, 325, 95,
 				Assets.btn_menu, new ClickListener()
 				{
 					@Override
@@ -58,7 +59,7 @@ public class MenuState extends State
 						State.setState(handler.getGame().controlState);
 					}
 				}));
-		uiManager.addObject(new UIImageButton(835, 625, 105, 50,
+		menuManager.addObject(new UIImageButton(835, 625, 105, 50,
 				Assets.btn_menu, new ClickListener()
 				{
 					@Override
@@ -68,7 +69,7 @@ public class MenuState extends State
 						State.setState(handler.getGame().menuState);
 					}
 				}));
-		uiManager.addObject(new UIImageButton(332, 555, 325, 90,
+		menuManager.addObject(new UIImageButton(332, 555, 325, 90,
 				Assets.btn_menu, new ClickListener()
 				{
 					@Override
@@ -92,7 +93,7 @@ public class MenuState extends State
 	{
 //		if (uiManager != null)
 //		{
-			uiManager.tick();
+			menuManager.tick();
 //		}
 //		else
 //			System.out.println("this isnt working");
@@ -101,7 +102,7 @@ public class MenuState extends State
 	@Override
 	public void render(Graphics g)
 	{
-			uiManager.render(g);
+			menuManager.render(g);
 
 		g.drawImage(menu, 0, 0, null);
 	}

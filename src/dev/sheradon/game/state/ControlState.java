@@ -16,17 +16,17 @@ import dev.sheradon.game.ui.UIManager;
 public class ControlState extends State
 {
 	private BufferedImage test;
-	private UIManager uiManager;
+	private UIManager controlsManager;
 	private boolean running = false;
 	private Thread thread;
 
 	public ControlState(Handler handler)
 	{
 		super(handler);
-		uiManager = new UIManager(handler);
-//		 handler.getMouseManager().setUIManager(uiManager);
+		controlsManager = new UIManager(handler);
+		handler.getMouseManager().setUIManager(getUiManager());;
 
-		uiManager.addObject(new UIImageButton(788, 610, 105, 45, Assets.btn_menu, new ClickListener()
+		controlsManager.addObject(new UIImageButton(788, 610, 105, 45, Assets.btn_menu, new ClickListener()
 		{
 			@Override
 			public void onCick()
@@ -48,9 +48,9 @@ public class ControlState extends State
 	@Override
 	public void tick()
 	{
-		if (uiManager != null)
+		if (controlsManager != null)
 		{
-			uiManager.tick();
+			controlsManager.tick();
 		}
 		else
 			System.out.println("this isnt working");
@@ -76,12 +76,12 @@ public class ControlState extends State
 
 	public UIManager getUiManager()
 	{
-		return uiManager;
+		return controlsManager;
 	}
 
 	public void setUiManager(UIManager uiManager)
 	{
-		this.uiManager = uiManager;
+		this.controlsManager = uiManager;
 	}
 
 	public boolean isRunning()
